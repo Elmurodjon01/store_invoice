@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:gsheets/gsheets.dart';
-import 'package:pizza_planet/src/model/constants.dart';
-import 'package:pizza_planet/src/presentation/main_page.dart';
+import 'package:pizza_planet/presentation/main_page.dart';
+import 'package:pizza_planet/src/logic/provider.dart';
+import 'package:provider/provider.dart';
+
+import 'model/constants.dart';
 
 void main() async {
   final gsheets = GSheets(credentials);
   final fetchSpreadSheet = await gsheets.spreadsheet(sheetID);
   var sheet = fetchSpreadSheet.worksheetByTitle('invoice');
-  await sheet?.values.insertValue('something', column: 1, row: 1);
-  await sheet?.values.insertValue('Elmurodjon', column: 3, row: 2);
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => SheetsLogic(),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
