@@ -15,6 +15,7 @@ const credentials = r'''
 }
 
 ''';
+List allLabel = [];
 
 const first20Row = [
   '체다슈레드',
