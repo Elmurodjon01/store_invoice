@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_planet/presentation/product_refill_page.dart';
-import 'package:pizza_planet/utils/icon_box.dart';
+import 'package:pizza_planet/src/presentation/product_refill_page.dart';
+
+import '../utils/icon_box.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});

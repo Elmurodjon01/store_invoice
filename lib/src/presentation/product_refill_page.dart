@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_planet/utils/item_box.dart';
-import 'package:pizza_planet/utils/search_field.dart';
-import 'package:pizza_planet/utils/load_button.dart';
+
+import '../model/product_model.dart';
+import '../utils/item_box.dart';
+import '../utils/load_button.dart';
 
 class ProductRefillPage extends StatefulWidget {
   const ProductRefillPage({super.key});
@@ -11,7 +12,10 @@ class ProductRefillPage extends StatefulWidget {
 }
 
 class _ProductRefillPageState extends State<ProductRefillPage> {
-  TextEditingController controller = TextEditingController();
+  TextEditingController controller1 = TextEditingController();
+  TextEditingController controller2 = TextEditingController();
+  TextEditingController controller3 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +34,7 @@ class _ProductRefillPageState extends State<ProductRefillPage> {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                const SearchBox(),
+                const SearchBar(),
                 Expanded(
                   child: ListView.builder(
                       scrollDirection: Axis.vertical,
@@ -38,7 +42,7 @@ class _ProductRefillPageState extends State<ProductRefillPage> {
                       itemCount: products.length,
                       itemBuilder: (context, index) {
                         return ItemBox(
-                          controller: controller,
+                          controller: controller1,
                           product: products[index],
                         );
                       }),
@@ -46,7 +50,7 @@ class _ProductRefillPageState extends State<ProductRefillPage> {
               ],
             ),
           ),
-          LoadButton(context, controller),
+          LoadButton(context, controller1),
         ],
       ),
     );
@@ -54,8 +58,7 @@ class _ProductRefillPageState extends State<ProductRefillPage> {
 }
 
 List<String> products = [
-  '어니언 드래싱'
-      '파마산',
+  '파마산',
   '와사비',
   '바베큐 소스',
   '칠리소스',
