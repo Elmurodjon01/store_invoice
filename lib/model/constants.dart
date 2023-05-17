@@ -1,4 +1,5 @@
 const sheetID = '1VpiE0TEexUA6SPAIh7T3wdV7GV3LGHjT80-C0Wd2tQk';
+const gsheetsUrl = 'https://docs.google.com/spreadsheets/d/1VpiE0TEexUA6SPAIh7T3wdV7GV3LGHjT80-C0Wd2tQk/edit?usp=sharing';
 const credentials = r'''
 {
   "type": "service_account",

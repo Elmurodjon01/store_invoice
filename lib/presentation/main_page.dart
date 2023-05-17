@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_planet/model/constants.dart';
 import 'package:pizza_planet/presentation/product_refill_page.dart';
 import 'package:pizza_planet/utils/appBar.dart';
+import 'package:pizza_planet/utils/check_web.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../utils/icon_box.dart';
 
@@ -57,10 +60,10 @@ class MainPage extends StatelessWidget {
                       onPressed: () {},
                     ),
                     IconBox(
-                      title: '재우기',
+                      title: '송장 확인',
                       img:
-                          'https://cdn.dribbble.com/users/285803/screenshots/1066705/dribbble.gif',
-                      onPressed: () {},
+                          'https://cdn-icons-png.flaticon.com/512/4143/4143062.png',
+                      onPressed: () =>checkWeb(),
                     )
                   ],
                 ),

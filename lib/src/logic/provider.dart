@@ -1,9 +1,15 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gsheets/gsheets.dart';
 
 import '../../model/constants.dart';
 
 class SheetsLogic extends ChangeNotifier {
+  final gsheets = GSheets(credentials);
+
   gsheetSubmit({
     required TextEditingController controller1,
     required TextEditingController controller2,
@@ -83,8 +89,8 @@ class SheetsLogic extends ChangeNotifier {
     // required TextEditingController controller76,
     // required TextEditingController controller77,
   }) async {
-    final gsheets = GSheets(credentials);
     final fetchSpreadSheet = await gsheets.spreadsheet(sheetID);
+
     var sheet = fetchSpreadSheet.worksheetByTitle('invoice');
     await sheet?.values.insertValue(controller1.text, column: 2, row: 1);
     await sheet?.values.insertValue(controller2.text, column: 2, row: 2);
@@ -168,6 +174,62 @@ class SheetsLogic extends ChangeNotifier {
     await sheet?.values.insertColumn(5, third20Row);
     // await sheet?.values.insertColumn(7, fourth20Row);
     print('saved');
+
     notifyListeners();
+  }
+
+  // Future<void> insertImage (String img) async{
+  //   final fetchSpreadSheet = await gsheets.spreadsheet(sheetID);
+  //
+  //   var sheet = fetchSpreadSheet.worksheetByTitle('image');
+  //   // await sheet?.values.insertColumn(1, img);
+  //   final String image = base64.encode(await _readImageData('https://hips.hearstapps.com/hmg-prod/images/close-up-of-tulips-blooming-in-field-royalty-free-image-1584131603.jpg?crop=0.630xw:1.00xh;0.186xw,0&resize=1200:*'));
+  //
+  //   // Add image to Excel worksheet.
+  //   await sheet.i
+  //
+  //   //Save and launch the excel.
+  //   final List<int> bytes = workbook.saveAsStream();
+  //
+  //   //Dispose the document.
+  //   workbook.dispose();
+  // }
+  // Future<void> _addImageToExcel() async {
+  //   //Create a Excel document.
+  //   //Creating a workbook.
+  //   final Workbook workbook = Workbook();
+  //
+  //   //Accessing via index
+  //   final Worksheet sheet = workbook.worksheets[0];
+  //
+  //   final String image = base64.encode(await _readImageData('image.jpg'));
+  //
+  //   // Add image to Excel worksheet.
+  //   sheet.ins
+  //
+  //   //Save and launch the excel.
+  //   final List<int> bytes = workbook.saveAsStream();
+  //
+  //   //Dispose the document.
+  //   workbook.dispose();
+  //
+  //   //Get the storage folder location using path_provider package.
+  //   final Directory directory = await getExternalStorageDirectory();
+  //   //Get directory path
+  //   final String path = directory.path;
+  //   //Create an empty file to write Excel data
+  //   final File file = File('$path/ExcelImage.xlsx');
+  //   //Write Excel data
+  //   await file.writeAsBytes(bytes, flush: true);
+  //   //Launch the file (used open_file package)
+  //   await OpenFile.open('$path/ExcelImage.xlsx');
+  // }
+
+
+
+
+  Future<List<int>> _readImageData(String name) async {
+    final ByteData data = await rootBundle.load('images/$name');
+    return data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
   }
 }
