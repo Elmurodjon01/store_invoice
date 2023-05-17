@@ -60,28 +60,28 @@ class SheetsLogic extends ChangeNotifier {
     required TextEditingController controller53,
     required TextEditingController controller54,
     required TextEditingController controller55,
-    required TextEditingController controller56,
-    required TextEditingController controller57,
-    required TextEditingController controller58,
-    required TextEditingController controller59,
-    required TextEditingController controller60,
-    required TextEditingController controller61,
-    required TextEditingController controller62,
-    required TextEditingController controller63,
-    required TextEditingController controller64,
-    required TextEditingController controller65,
-    required TextEditingController controller66,
-    required TextEditingController controller67,
-    required TextEditingController controller68,
-    required TextEditingController controller69,
-    required TextEditingController controller70,
-    required TextEditingController controller71,
-    required TextEditingController controller72,
-    required TextEditingController controller73,
-    required TextEditingController controller74,
-    required TextEditingController controller75,
-    required TextEditingController controller76,
-    required TextEditingController controller77,
+    // required TextEditingController controller56,
+    // required TextEditingController controller57,
+    // required TextEditingController controller58,
+    // required TextEditingController controller59,
+    // required TextEditingController controller60,
+    // required TextEditingController controller61,
+    // required TextEditingController controller62,
+    // required TextEditingController controller63,
+    // required TextEditingController controller64,
+    // required TextEditingController controller65,
+    // required TextEditingController controller66,
+    // required TextEditingController controller67,
+    // required TextEditingController controller68,
+    // required TextEditingController controller69,
+    // required TextEditingController controller70,
+    // required TextEditingController controller71,
+    // required TextEditingController controller72,
+    // required TextEditingController controller73,
+    // required TextEditingController controller74,
+    // required TextEditingController controller75,
+    // required TextEditingController controller76,
+    // required TextEditingController controller77,
   }) async {
     final gsheets = GSheets(credentials);
     final fetchSpreadSheet = await gsheets.spreadsheet(sheetID);
@@ -141,32 +141,32 @@ class SheetsLogic extends ChangeNotifier {
     await sheet?.values.insertValue(controller53.text, column: 6, row: 13);
     await sheet?.values.insertValue(controller54.text, column: 6, row: 14);
     await sheet?.values.insertValue(controller55.text, column: 6, row: 15);
-    await sheet?.values.insertValue(controller56.text, column: 6, row: 16);
-    await sheet?.values.insertValue(controller57.text, column: 6, row: 17);
-    await sheet?.values.insertValue(controller58.text, column: 6, row: 18);
-    await sheet?.values.insertValue(controller59.text, column: 6, row: 19);
-    await sheet?.values.insertValue(controller60.text, column: 6, row: 20);
-    await sheet?.values.insertValue(controller61.text, column: 8, row: 1);
-    await sheet?.values.insertValue(controller62.text, column: 8, row: 2);
-    await sheet?.values.insertValue(controller63.text, column: 8, row: 3);
-    await sheet?.values.insertValue(controller64.text, column: 8, row: 4);
-    await sheet?.values.insertValue(controller65.text, column: 8, row: 5);
-    await sheet?.values.insertValue(controller66.text, column: 8, row: 6);
-    await sheet?.values.insertValue(controller67.text, column: 8, row: 7);
-    await sheet?.values.insertValue(controller68.text, column: 8, row: 8);
-    await sheet?.values.insertValue(controller69.text, column: 8, row: 9);
-    await sheet?.values.insertValue(controller70.text, column: 8, row: 10);
-    await sheet?.values.insertValue(controller71.text, column: 8, row: 11);
-    await sheet?.values.insertValue(controller72.text, column: 8, row: 12);
-    await sheet?.values.insertValue(controller73.text, column: 8, row: 13);
-    await sheet?.values.insertValue(controller74.text, column: 8, row: 14);
-    await sheet?.values.insertValue(controller75.text, column: 8, row: 15);
-    await sheet?.values.insertValue(controller76.text, column: 8, row: 16);
-    await sheet?.values.insertValue(controller77.text, column: 8, row: 17);
+    // await sheet?.values.insertValue(controller56.text, column: 6, row: 16);
+    // await sheet?.values.insertValue(controller57.text, column: 6, row: 17);
+    // await sheet?.values.insertValue(controller58.text, column: 6, row: 18);
+    // await sheet?.values.insertValue(controller59.text, column: 6, row: 19);
+    // await sheet?.values.insertValue(controller60.text, column: 6, row: 20);
+    // await sheet?.values.insertValue(controller61.text, column: 8, row: 1);
+    // await sheet?.values.insertValue(controller62.text, column: 8, row: 2);
+    // await sheet?.values.insertValue(controller63.text, column: 8, row: 3);
+    // await sheet?.values.insertValue(controller64.text, column: 8, row: 4);
+    // await sheet?.values.insertValue(controller65.text, column: 8, row: 5);
+    // await sheet?.values.insertValue(controller66.text, column: 8, row: 6);
+    // await sheet?.values.insertValue(controller67.text, column: 8, row: 7);
+    // await sheet?.values.insertValue(controller68.text, column: 8, row: 8);
+    // await sheet?.values.insertValue(controller69.text, column: 8, row: 9);
+    // await sheet?.values.insertValue(controller70.text, column: 8, row: 10);
+    // await sheet?.values.insertValue(controller71.text, column: 8, row: 11);
+    // await sheet?.values.insertValue(controller72.text, column: 8, row: 12);
+    // await sheet?.values.insertValue(controller73.text, column: 8, row: 13);
+    // await sheet?.values.insertValue(controller74.text, column: 8, row: 14);
+    // await sheet?.values.insertValue(controller75.text, column: 8, row: 15);
+    // await sheet?.values.insertValue(controller76.text, column: 8, row: 16);
+    // await sheet?.values.insertValue(controller77.text, column: 8, row: 17);
     await sheet?.values.insertColumn(1, first20Row);
     await sheet?.values.insertColumn(3, second20Row);
     await sheet?.values.insertColumn(5, third20Row);
-    await sheet?.values.insertColumn(7, fourth20Row);
+    // await sheet?.values.insertColumn(7, fourth20Row);
     print('saved');
     notifyListeners();
   }

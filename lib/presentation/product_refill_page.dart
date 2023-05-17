@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_planet/presentation/productRefill/product_refill1.dart';
+import 'package:pizza_planet/presentation/productRefill/product_refill2.dart';
 import 'package:pizza_planet/src/logic/provider.dart';
 import 'package:provider/provider.dart';
 import '../model/constants.dart';
@@ -12,20 +14,32 @@ class ProductRefillPage extends StatefulWidget {
   State<ProductRefillPage> createState() => _ProductRefillPageState();
 }
 
-class _ProductRefillPageState extends State<ProductRefillPage> {
+class _ProductRefillPageState extends State<ProductRefillPage>
+    with SingleTickerProviderStateMixin {
   // TextEditingController controller1 = TextEditingController();
 
-  List<TextEditingController> _controller =
+  final List<TextEditingController> _controller =
       List.generate(77, (i) => TextEditingController());
   List allLabel = [];
+  static const List myTabs = [
+    ProductRefill1(),
+    ProductRefill2(),
+  ];
+  late TabController tabController;
   @override
   void initState() {
+    tabController = TabController(length: myTabs.length, vsync: this);
     setState(() {
       allLabel.addAll(first20Row);
       allLabel.addAll(second20Row);
       allLabel.addAll(third20Row);
-      allLabel.addAll(fourth20Row);
+      // allLabel.addAll(fourth20Row);
     });
+    // if (allLabel.length == _controller.length) {
+    //   return print('equal');
+    // } else {
+    //   return print('not equal');
+    // }
     super.initState();
   }
 
@@ -33,6 +47,7 @@ class _ProductRefillPageState extends State<ProductRefillPage> {
   Widget build(BuildContext context) {
     final provider = Provider.of<SheetsLogic>(context);
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -49,18 +64,49 @@ class _ProductRefillPageState extends State<ProductRefillPage> {
             child: Column(
               children: [
                 const SearchBar(),
+                TabBar(
+                  controller: tabController,
+                  // onTap: (tabController) {
+                  //   return myTabs[tabController];
+                  // },
+                  tabs: const [
+                    Tab(
+                      icon: Icon(Icons.home),
+                      text: 'home',
+                    ),
+                    Tab(
+                      icon: Icon(Icons.send),
+                      text: 'another home',
+                    ),
+                  ],
+                ),
                 Expanded(
-                  child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      itemCount: allLabel.length,
-                      itemBuilder: (context, index) {
-                        print(allLabel.length);
-                        return ItemBox(
-                          controller: _controller[index],
-                          product: allLabel[index],
-                        );
-                      }),
+                  child: TabBarView(controller: tabController, children: [
+                    ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: allLabel.length,
+                        itemBuilder: (context, index) {
+                          // print(allLabel.length);
+                          // print('controller lenght ${_controller.last}');
+                          return ItemBox(
+                            controller: _controller[index],
+                            product: allLabel[index],
+                          );
+                        }),
+                    // Center(
+                    //   child: Text(
+                    //     'first home',
+                    //     style: TextStyle(color: Colors.white),
+                    //   ),
+                    // ),
+                    Center(
+                      child: Text(
+                        'second home',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ]),
                 ),
               ],
             ),
@@ -123,28 +169,28 @@ class _ProductRefillPageState extends State<ProductRefillPage> {
               controller53: _controller[52],
               controller54: _controller[53],
               controller55: _controller[54],
-              controller56: _controller[55],
-              controller57: _controller[56],
-              controller58: _controller[57],
-              controller59: _controller[58],
-              controller60: _controller[59],
-              controller61: _controller[60],
-              controller62: _controller[61],
-              controller63: _controller[62],
-              controller64: _controller[63],
-              controller65: _controller[64],
-              controller66: _controller[65],
-              controller67: _controller[66],
-              controller68: _controller[67],
-              controller69: _controller[68],
-              controller70: _controller[69],
-              controller71: _controller[70],
-              controller72: _controller[71],
-              controller73: _controller[72],
-              controller74: _controller[73],
-              controller75: _controller[74],
-              controller76: _controller[75],
-              controller77: _controller[76],
+              // controller56: _controller[55],
+              // controller57: _controller[56],
+              // controller58: _controller[57],
+              // controller59: _controller[58],
+              // controller60: _controller[59],
+              // controller61: _controller[60],
+              // controller62: _controller[61],
+              // controller63: _controller[62],
+              // controller64: _controller[63],
+              // controller65: _controller[64],
+              // controller66: _controller[65],
+              // controller67: _controller[66],
+              // controller68: _controller[67],
+              // controller69: _controller[68],
+              // controller70: _controller[69],
+              // controller71: _controller[70],
+              // controller72: _controller[71],
+              // controller73: _controller[72],
+              // controller74: _controller[73],
+              // controller75: _controller[74],
+              // controller76: _controller[75],
+              // controller77: _controller[76],
             ),
           ),
         ],
