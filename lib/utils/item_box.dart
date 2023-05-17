@@ -13,41 +13,39 @@ class ItemBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-      child: Container(
-        height: height * 0.09,
-        width: width * 0.3,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 197, 195, 195),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Column(
-          children: [
-            Text(
-              product,
-              style: const TextStyle(fontSize: 18),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: TextField(
-                controller: controller,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color(0xFFCFD8DC),
-                  contentPadding: const EdgeInsets.all(15),
-                  hintText: '수량을 입력하십시오',
-                  hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide.none),
-                ),
+    // double height = MediaQuery.of(context).size.height;
+    // double width = MediaQuery.of(context).size.width;
+    return Container(
+      // height: height * 0.03,
+      // width: width * 0.3,
+      margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 197, 195, 195),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        children: [
+          Text(
+            product,
+            style: const TextStyle(fontSize: 18, color: Colors.black),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: TextField(
+              controller: controller,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: const Color(0xFFCFD8DC),
+                contentPadding: const EdgeInsets.all(15),
+                hintText: '수량을 입력하십시오',
+                hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
