@@ -1,12 +1,15 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:pizza_planet/src/logic/provider.dart';
+import 'package:provider/provider.dart';
 
 class SearchBox extends StatelessWidget {
-  const SearchBox({Key? key}) : super(key: key);
+  void Function(String)? onChanged;
+  SearchBox({Key? key, required this.onChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<SheetsLogic>(context);
     Debouncer _debouncer = Debouncer();
     return Container(
       margin: const EdgeInsets.only(top: 10, left: 20, right: 20),
@@ -17,9 +20,14 @@ class SearchBox extends StatelessWidget {
             spreadRadius: 0.0)
       ]),
       child: TextField(
-        onChanged: (title) {
-          _debouncer.run(() {});
-        },
+        onChanged: onChanged,
+        // onChanged: (title) {
+        //
+        //   _debouncer.run((){
+        //
+        //   });
+        //   print(provider.searchResults);
+        // },
         decoration: InputDecoration(
             filled: true,
             fillColor: Colors.white,

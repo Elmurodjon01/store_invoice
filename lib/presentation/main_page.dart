@@ -56,7 +56,7 @@ class MainPage extends StatelessWidget {
                     IconBox(
                       title: '재우기',
                       img:
-                          'https://cdn.dribbble.com/users/285803/screenshots/1066705/dribbble.gif',
+                          'https://www.pngfind.com/pngs/m/105-1056512_png-file-camera-photo-upload-icon-transparent-png.png',
                       onPressed: () {},
                     ),
                     IconBox(
