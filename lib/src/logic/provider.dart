@@ -61,7 +61,7 @@ class SheetsLogic extends ChangeNotifier {
     required TextEditingController controller52,
     required TextEditingController controller53,
     required TextEditingController controller54,
-    // required TextEditingController controller55,
+    required TextEditingController controller55,
     // required TextEditingController controller56,
     // required TextEditingController controller57,
     // required TextEditingController controller58,
@@ -143,7 +143,7 @@ class SheetsLogic extends ChangeNotifier {
     await sheet?.values.insertValue(controller52.text, column: 6, row: 12);
     await sheet?.values.insertValue(controller53.text, column: 6, row: 13);
     await sheet?.values.insertValue(controller54.text, column: 6, row: 14);
-    // await sheet?.values.insertValue(controller55.text, column: 6, row: 15);
+    await sheet?.values.insertValue(controller55.text, column: 6, row: 15);
     // await sheet?.values.insertValue(controller56.text, column: 6, row: 16);
     // await sheet?.values.insertValue(controller57.text, column: 6, row: 17);
     // await sheet?.values.insertValue(controller58.text, column: 6, row: 18);
@@ -224,15 +224,15 @@ class SheetsLogic extends ChangeNotifier {
 
   List searchFrom = [];
 
-  void searchFunc(String query) {
-    for (var fruit in allLabel) {
-      if (fruit.toLowerCase().contains(query.toLowerCase())) {
-        searchResults.add(query);
+  // void searchFunc(String query) {
+  //   for (var fruit in allLabel) {
+  //     if (fruit.toLowerCase().contains(query.toLowerCase())) {
+  //       searchResults.add(query);
 
-        print(searchResults);
-      }
-    }
-  }
+  //       print(searchResults);
+  //     }
+  //   }
+  // }
 
   // searchFunc(String query) async {
   //   searchResults.clear();

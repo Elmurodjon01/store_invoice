@@ -48,19 +48,19 @@ class _ProductRefillPageState extends State<ProductRefillPage>
     final double itemWidth = size.width / 2;
 
     final provider = Provider.of<SheetsLogic>(context);
-    searchOutcome() {
-      GridView.builder(
-        shrinkWrap: true,
-        itemCount: provider.searchResults.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: (itemHeight / itemWidth), crossAxisCount: 2),
-        itemBuilder: (BuildContext context, int index) {
-          return ItemBox(
-              product: provider.searchResults[index],
-              controller: _controller[index]);
-        },
-      );
-    }
+    // searchOutcome() {
+    //   GridView.builder(
+    //     shrinkWrap: true,
+    //     itemCount: provider.searchResults.length,
+    //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    //         childAspectRatio: (itemHeight / itemWidth), crossAxisCount: 2),
+    //     itemBuilder: (BuildContext context, int index) {
+    //       return ItemBox(
+    //           product: provider.searchResults[index],
+    //           controller: _controller[index]);
+    //     },
+    //   );
+    // }
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -79,8 +79,7 @@ class _ProductRefillPageState extends State<ProductRefillPage>
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                SearchBox(
-                    onChanged: (String query) => provider.searchFunc(query)),
+                SearchBox(onChanged: (String query) {}),
                 TabBar(
                   controller: tabController,
                   // onTap: (tabController) {
@@ -101,17 +100,13 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                   child: TabBarView(controller: tabController, children: [
                     GridView.builder(
                       shrinkWrap: true,
-                      itemCount: provider.searchResults.isEmpty
-                          ? allLabel.length
-                          : provider.searchResults.length,
+                      itemCount: allLabel.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           childAspectRatio: (itemHeight / itemWidth),
                           crossAxisCount: 2),
                       itemBuilder: (BuildContext context, int index) {
                         return ItemBox(
-                            product: provider.searchResults.isEmpty
-                                ? allLabel[index]
-                                : provider.searchResults[index],
+                            product: allLabel[index],
                             controller: _controller[index]);
                       },
                     ),
@@ -187,7 +182,7 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                       controller52: _controller[51],
                       controller53: _controller[52],
                       controller54: _controller[53],
-                      // controller55: _controller[54],
+                      controller55: _controller[54],
                       // controller56: _controller[55],
                       // controller57: _controller[56],
                       // controller58: _controller[57],
