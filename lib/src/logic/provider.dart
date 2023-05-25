@@ -4,7 +4,7 @@ import 'package:gsheets/gsheets.dart';
 import '../../model/constants.dart';
 
 class SheetsLogic extends ChangeNotifier {
-  List searchResults = [];
+  String searchResults = '';
 
   gsheetSubmit({
     required TextEditingController controller1,
@@ -62,11 +62,11 @@ class SheetsLogic extends ChangeNotifier {
     required TextEditingController controller53,
     required TextEditingController controller54,
     required TextEditingController controller55,
-    // required TextEditingController controller56,
-    // required TextEditingController controller57,
-    // required TextEditingController controller58,
-    // required TextEditingController controller59,
-    // required TextEditingController controller60,
+    required TextEditingController controller56,
+    required TextEditingController controller57,
+    required TextEditingController controller58,
+    required TextEditingController controller59,
+    required TextEditingController controller60,
     // required TextEditingController controller61,
     // required TextEditingController controller62,
     // required TextEditingController controller63,
@@ -144,11 +144,11 @@ class SheetsLogic extends ChangeNotifier {
     await sheet?.values.insertValue(controller53.text, column: 6, row: 13);
     await sheet?.values.insertValue(controller54.text, column: 6, row: 14);
     await sheet?.values.insertValue(controller55.text, column: 6, row: 15);
-    // await sheet?.values.insertValue(controller56.text, column: 6, row: 16);
-    // await sheet?.values.insertValue(controller57.text, column: 6, row: 17);
-    // await sheet?.values.insertValue(controller58.text, column: 6, row: 18);
-    // await sheet?.values.insertValue(controller59.text, column: 6, row: 19);
-    // await sheet?.values.insertValue(controller60.text, column: 6, row: 20);
+    await sheet?.values.insertValue(controller56.text, column: 6, row: 16);
+    await sheet?.values.insertValue(controller57.text, column: 6, row: 17);
+    await sheet?.values.insertValue(controller58.text, column: 6, row: 18);
+    await sheet?.values.insertValue(controller59.text, column: 6, row: 19);
+    await sheet?.values.insertValue(controller60.text, column: 6, row: 20);
     // await sheet?.values.insertValue(controller61.text, column: 8, row: 1);
     // await sheet?.values.insertValue(controller62.text, column: 8, row: 2);
     // await sheet?.values.insertValue(controller63.text, column: 8, row: 3);
@@ -222,17 +222,15 @@ class SheetsLogic extends ChangeNotifier {
   //   await OpenFile.open('$path/ExcelImage.xlsx');
   // }
 
-  List searchFrom = [];
-
-  // void searchFunc(String query) {
-  //   for (var fruit in allLabel) {
-  //     if (fruit.toLowerCase().contains(query.toLowerCase())) {
-  //       searchResults.add(query);
-
-  //       print(searchResults);
-  //     }
-  //   }
-  // }
+  void searchFunc(String query) {
+    for (var res in allLabel) {
+      if (res.toLowerCase().contains(query.toLowerCase())) {
+        searchResults = query;
+        notifyListeners();
+        print(searchResults);
+      }
+    }
+  }
 
   // searchFunc(String query) async {
   //   searchResults.clear();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_planet/presentation/main_page.dart';
 import 'package:pizza_planet/src/logic/provider.dart';
-import 'package:pizza_planet/utils/search_field.dart';
+import 'package:pizza_planet/src/logic/search_logic.dart';
 import 'package:provider/provider.dart';
 import '../model/constants.dart';
 import '../utils/item_box.dart';
@@ -21,7 +21,7 @@ class _ProductRefillPageState extends State<ProductRefillPage>
 
   final List<TextEditingController> _controller =
       List.generate(77, (i) => TextEditingController());
-  List allLabel = [];
+  // List allLabel = [];
 
   late TabController tabController;
   @override
@@ -30,14 +30,6 @@ class _ProductRefillPageState extends State<ProductRefillPage>
     allLabel.addAll(first20Row);
     allLabel.addAll(second20Row);
     allLabel.addAll(third20Row);
-
-    // allLabel.addAll(fourth20Row);
-
-    // if (allLabel.length == _controller.length) {
-    //   return print('equal');
-    // } else {
-    //   return print('not equal');
-    // }
     super.initState();
   }
 
@@ -48,19 +40,6 @@ class _ProductRefillPageState extends State<ProductRefillPage>
     final double itemWidth = size.width / 2;
 
     final provider = Provider.of<SheetsLogic>(context);
-    // searchOutcome() {
-    //   GridView.builder(
-    //     shrinkWrap: true,
-    //     itemCount: provider.searchResults.length,
-    //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //         childAspectRatio: (itemHeight / itemWidth), crossAxisCount: 2),
-    //     itemBuilder: (BuildContext context, int index) {
-    //       return ItemBox(
-    //           product: provider.searchResults[index],
-    //           controller: _controller[index]);
-    //     },
-    //   );
-    // }
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -71,6 +50,16 @@ class _ProductRefillPageState extends State<ProductRefillPage>
           '제품 정보',
           style: TextStyle(color: Colors.black),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showSearch(
+                  context: context,
+                  delegate: CustomSearchDelegate(controller: _controller));
+            },
+            icon: const Icon(Icons.search),
+          ),
+        ],
       ),
       body: Stack(
         alignment: Alignment.bottomCenter,
@@ -79,7 +68,6 @@ class _ProductRefillPageState extends State<ProductRefillPage>
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                SearchBox(onChanged: (String query) {}),
                 TabBar(
                   controller: tabController,
                   // onTap: (tabController) {
@@ -183,11 +171,11 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                       controller53: _controller[52],
                       controller54: _controller[53],
                       controller55: _controller[54],
-                      // controller56: _controller[55],
-                      // controller57: _controller[56],
-                      // controller58: _controller[57],
-                      // controller59: _controller[58],
-                      // controller60: _controller[59],
+                      controller56: _controller[55],
+                      controller57: _controller[56],
+                      controller58: _controller[57],
+                      controller59: _controller[58],
+                      controller60: _controller[59],
                       // controller61: _controller[60],
                       // controller62: _controller[61],
                       // controller63: _controller[62],
