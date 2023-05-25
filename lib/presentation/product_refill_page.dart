@@ -50,16 +50,16 @@ class _ProductRefillPageState extends State<ProductRefillPage>
           '제품 정보',
           style: TextStyle(color: Colors.black),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              showSearch(
-                  context: context,
-                  delegate: CustomSearchDelegate(controller: _controller));
-            },
-            icon: const Icon(Icons.search),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     onPressed: () {
+        //       showSearch(
+        //           context: context,
+        //           delegate: CustomSearchDelegate(controller: _controller));
+        //     },
+        //     icon: const Icon(Icons.search),
+        //   ),
+        // ],
       ),
       body: Stack(
         alignment: Alignment.bottomCenter,
@@ -175,7 +175,7 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                       controller57: _controller[56],
                       controller58: _controller[57],
                       controller59: _controller[58],
-                      controller60: _controller[59],
+                      // controller60: _controller[59],
                       // controller61: _controller[60],
                       // controller62: _controller[61],
                       // controller63: _controller[62],

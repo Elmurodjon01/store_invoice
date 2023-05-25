@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:pizza_planet/presentation/product_refill_page.dart';
 import 'package:pizza_planet/utils/appBar.dart';
 import 'package:pizza_planet/utils/check_web.dart';
@@ -13,14 +15,6 @@ class MainPage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text(
-      //     'Pizza Planet',
-      //     style: TextStyle(color: Colors.black),
-      //   ),
-      //   elevation: 0,
-      //   backgroundColor: Colors.transparent,
-      // ),
       body: Column(
         children: [
           const SizedBox(
@@ -32,7 +26,7 @@ class MainPage extends StatelessWidget {
           ),
           Center(
             child: Container(
-              height: height * 0.8,
+              height: height * 0.7,
               width: width * 0.9,
               decoration: BoxDecoration(
                 color: Colors.blue,

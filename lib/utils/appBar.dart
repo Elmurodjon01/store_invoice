@@ -1,21 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_planet/utils/avatar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class Custome_Appbar extends StatelessWidget {
+class Custome_Appbar extends StatefulWidget {
   const Custome_Appbar({
     super.key,
   });
 
   @override
+  State<Custome_Appbar> createState() => _Custome_AppbarState();
+}
+
+class _Custome_AppbarState extends State<Custome_Appbar> {
+  void signOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
     return Container(
-      height: 80,
+      height: 130,
       width: 400,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30), color: Colors.blue),
-      child: const Center(
-        child: Text(
-          'Pizza planet',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+      child: Center(
+        child: Row(
+          children: [
+            // Text('대표자:'),
+            Column(
+              children: [Expanded(child: avatar()), Text('대표자: ${user.email}')],
+            ),
+            const Text(
+              'Pizza planet',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+            IconButton(
+              onPressed: () => signOut(),
+              icon: const Icon(Icons.logout),
+            ),
+          ],
         ),
       ),
     );

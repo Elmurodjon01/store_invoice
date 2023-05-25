@@ -41,6 +41,10 @@ dependencies:
   flutter_titled_container: ^1.0.7
   quickalert: ^1.0.1
   url_launcher: ^6.1.11
+  avatar_glow: ^2.0.2
+  firebase_auth: ^4.6.1
+  firebase_core: ^2.13.0
+  cool_alert: ^2.0.1
 
 dev_dependencies:
   flutter_test:
