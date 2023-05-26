@@ -19,6 +19,7 @@ class _Custome_AppbarState extends State<Custome_Appbar> {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
+
     return Container(
       height: 130,
       width: 400,
