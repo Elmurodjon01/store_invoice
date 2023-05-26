@@ -30,7 +30,21 @@ class _Custome_AppbarState extends State<Custome_Appbar> {
           children: [
             // Text('대표자:'),
             Column(
-              children: [Expanded(child: avatar()), Text('대표자: ${user.email}')],
+              children: [
+                Expanded(child: avatar()),
+                Padding(
+                  padding: const EdgeInsets.only(left: 23),
+                  child: Row(
+                    children: [
+                      const Text('User:'),
+                      Text(
+                        user.email!,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
             const Text(
               'Pizza planet',

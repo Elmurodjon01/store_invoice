@@ -4,28 +4,44 @@ import 'package:flutter/material.dart';
 import 'package:pizza_planet/presentation/main_page.dart';
 
 class AuthServices {
-  static signupUser(
-      String email, String password, String name, BuildContext context) async {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        });
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+  static signupUser(String email, String password, BuildContext context) async {
+    //TODO: there is issue
 
-      await FirebaseAuth.instance.currentUser!.updateDisplayName(name);
-      await FirebaseAuth.instance.currentUser!.updateEmail(email);
+    try {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          });
+      // UserCredential userCredential =
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      // User? user = userCredential.user;
+      // await user!.updateDisplayName(name);
+
+      // await FirebaseAuth.instance.currentUser!.updateDisplayName(name);
+      // await FirebaseAuth.instance.currentUser!.updateEmail(email);
+
       // await FirestoreServices.saveUser(name, email, userCredential.user!.uid);
       CoolAlert.show(
         context: context,
         type: CoolAlertType.success,
         title: 'Registration successful',
-        onConfirmBtnTap: () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MainPage())),
+        // onConfirmBtnTap: () => showDialog(
+        onConfirmBtnTap: () => Navigator.pop(context),
+        //     context: context,
+        //     builder: (context) {
+        //       return Center(
+        //         child: Text('Please LogIn now'),
+        //       );
+        //     }),
+        // onCancelBtnTap: () => Center(
+        //   child: Text('cancel button'),
+        // ),
         loopAnimation: true,
       );
     } on FirebaseAuthException catch (e) {
@@ -58,8 +74,6 @@ class AuthServices {
 
   static signinUser(String email, String password, BuildContext context) async {
     try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
       showDialog(
           context: context,
           builder: (context) {
@@ -67,6 +81,9 @@ class AuthServices {
               child: CircularProgressIndicator(),
             );
           });
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      Navigator.pop(context);
       CoolAlert.show(
         context: context,
         type: CoolAlertType.success,
