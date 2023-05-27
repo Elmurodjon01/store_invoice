@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_planet/presentation/main_page.dart';
 import 'package:pizza_planet/src/logic/provider.dart';
-import 'package:pizza_planet/src/logic/search_logic.dart';
 import 'package:provider/provider.dart';
 import '../model/constants.dart';
 import '../utils/item_box.dart';
@@ -20,16 +19,25 @@ class _ProductRefillPageState extends State<ProductRefillPage>
   // TextEditingController controller1 = TextEditingController();
 
   final List<TextEditingController> _controller =
-      List.generate(77, (i) => TextEditingController());
+      List.generate(58, (i) => TextEditingController());
   // List allLabel = [];
 
   late TabController tabController;
+
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
     allLabel.addAll(first20Row);
     allLabel.addAll(second20Row);
     allLabel.addAll(third20Row);
+    print(allLabel.length);
+    // for (var controller in _controller) {
+    //   controller.addListener(() {
+    //     controller.selection =
+    //         TextSelection.fromPosition(const TextPosition(offset: 0));
+    //   });
+    // }
+
     super.initState();
   }
 
@@ -174,7 +182,7 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                       controller56: _controller[55],
                       controller57: _controller[56],
                       controller58: _controller[57],
-                      controller59: _controller[58],
+                      // controller59: _controller[58],
                       // controller60: _controller[59],
                       // controller61: _controller[60],
                       // controller62: _controller[61],
@@ -194,7 +202,9 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                       // controller76: _controller[75],
                       // controller77: _controller[76],
                     );
-                    _controller.clear();
+                    WidgetsBinding.instance
+                        .addPostFrameCallback((_) => _controller.clear());
+
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(

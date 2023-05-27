@@ -1,9 +1,17 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pizza_planet/presentation/main_page.dart';
 
 class AuthServices {
+  static signOutUser(BuildContext context) {
+    CoolAlert.show(
+        context: context,
+        type: CoolAlertType.confirm,
+        onConfirmBtnTap: () => FirebaseAuth.instance.signOut(),
+        onCancelBtnTap: () => Navigator.pop(context),
+        title: '로그아웃하시겠습니까?');
+  }
+
   static signupUser(String email, String password, BuildContext context) async {
     //TODO: there is issue
 
@@ -89,6 +97,7 @@ class AuthServices {
         type: CoolAlertType.success,
         title: 'You are Logged in',
         loopAnimation: true,
+        // onConfirmBtnTap: () => Navigator.pop(context),
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -97,6 +106,7 @@ class AuthServices {
           type: CoolAlertType.error,
           title: 'No user Found with this Email',
           loopAnimation: true,
+          onConfirmBtnTap: () => Navigator.pop(context),
         );
       } else if (e.code == 'wrong-password') {
         CoolAlert.show(
@@ -104,6 +114,7 @@ class AuthServices {
           type: CoolAlertType.error,
           title: 'Password did not match',
           loopAnimation: true,
+          onConfirmBtnTap: () => Navigator.pop(context),
         );
       }
     }

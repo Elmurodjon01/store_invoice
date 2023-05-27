@@ -1,9 +1,12 @@
+// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gsheets/gsheets.dart';
 
 import '../../model/constants.dart';
 
 class SheetsLogic extends ChangeNotifier {
+  final user = FirebaseAuth.instance.currentUser!;
   gsheetSubmit({
     required TextEditingController controller1,
     required TextEditingController controller2,
@@ -63,7 +66,7 @@ class SheetsLogic extends ChangeNotifier {
     required TextEditingController controller56,
     required TextEditingController controller57,
     required TextEditingController controller58,
-    required TextEditingController controller59,
+    // required TextEditingController controller59,
     // required TextEditingController controller60,
     // required TextEditingController controller61,
     // required TextEditingController controller62,
@@ -148,8 +151,8 @@ class SheetsLogic extends ChangeNotifier {
     await sheet?.values.insertValue(controller56.text, column: 6, row: 16);
     await sheet?.values.insertValue(controller57.text, column: 6, row: 17);
     await sheet?.values.insertValue(controller58.text, column: 6, row: 18);
-    await sheet?.values.insertValue(controller59.text, column: 6, row: 19);
-    // await sheet?.values.insertValue(controller60.text, column: 6, row: 20);
+    await sheet?.values.insertValue(user.email!, column: 6, row: 19);
+    // await sheet?.values.insertValue(controller60, column: 6, row: 20);
     // await sheet?.values.insertValue(controller61.text, column: 8, row: 1);
     // await sheet?.values.insertValue(controller62.text, column: 8, row: 2);
     // await sheet?.values.insertValue(controller63.text, column: 8, row: 3);
@@ -170,6 +173,7 @@ class SheetsLogic extends ChangeNotifier {
     await sheet?.values.insertColumn(1, first20Row);
     await sheet?.values.insertColumn(3, second20Row);
     await sheet?.values.insertColumn(5, third20Row);
+    // await sheet?.values.insertValue(column: );
     // await sheet?.values.insertColumn(7, fourth20Row);
     print('saved');
 

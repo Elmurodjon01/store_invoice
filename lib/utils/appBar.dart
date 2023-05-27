@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_planet/presentation/authentication/auth_services.dart';
 import 'package:pizza_planet/utils/avatar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -12,10 +13,6 @@ class Custome_Appbar extends StatefulWidget {
 }
 
 class _Custome_AppbarState extends State<Custome_Appbar> {
-  void signOut() {
-    FirebaseAuth.instance.signOut();
-  }
-
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
@@ -51,7 +48,7 @@ class _Custome_AppbarState extends State<Custome_Appbar> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             IconButton(
-              onPressed: () => signOut(),
+              onPressed: () => AuthServices.signOutUser(context),
               icon: const Icon(Icons.logout),
             ),
           ],
