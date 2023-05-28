@@ -120,6 +120,8 @@ class _ProductRefillPageState extends State<ProductRefillPage>
           LoadButton(
               context: context,
               onTap: () {
+                //TODO: do some action if controllers are empty ?? null
+                if (_controller.isEmpty) {}
                 loadAnimation(
                   context: context,
                   onConfirmBtnTap: () {

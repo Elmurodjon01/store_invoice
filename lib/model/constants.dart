@@ -87,7 +87,7 @@ const third20Row = [
 ];
 
 const lastRow = [
-  '코다노 체다소스',
+  'Editor',
   'Editor',
   '솔로박스',
   '페스츄리',

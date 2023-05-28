@@ -93,64 +93,122 @@ class SheetsLogic extends ChangeNotifier {
     var sheet = fetchSpreadSheet.worksheetByTitle('invoice');
 
     // final sheet =  fetchSpreadSheet.worksheetByTitle('invoice');
-    await sheet?.values.insertValue(controller1.text, column: 2, row: 1);
-    await sheet?.values.insertValue(controller2.text, column: 2, row: 2);
-    await sheet?.values.insertValue(controller3.text, column: 2, row: 3);
-    await sheet?.values.insertValue(controller4.text, column: 2, row: 4);
-    await sheet?.values.insertValue(controller5.text, column: 2, row: 5);
-    await sheet?.values.insertValue(controller6.text, column: 2, row: 6);
-    await sheet?.values.insertValue(controller7.text, column: 2, row: 7);
-    await sheet?.values.insertValue(controller8.text, column: 2, row: 8);
-    await sheet?.values.insertValue(controller9.text, column: 2, row: 9);
-    await sheet?.values.insertValue(controller10.text, column: 2, row: 10);
-    await sheet?.values.insertValue(controller11.text, column: 2, row: 11);
-    await sheet?.values.insertValue(controller12.text, column: 2, row: 12);
-    await sheet?.values.insertValue(controller13.text, column: 2, row: 13);
-    await sheet?.values.insertValue(controller14.text, column: 2, row: 14);
-    await sheet?.values.insertValue(controller15.text, column: 2, row: 15);
-    await sheet?.values.insertValue(controller16.text, column: 2, row: 16);
-    await sheet?.values.insertValue(controller17.text, column: 2, row: 17);
-    await sheet?.values.insertValue(controller18.text, column: 2, row: 18);
-    await sheet?.values.insertValue(controller19.text, column: 2, row: 19);
-    await sheet?.values.insertValue(controller20.text, column: 2, row: 20);
-    await sheet?.values.insertValue(controller21.text, column: 4, row: 1);
-    await sheet?.values.insertValue(controller22.text, column: 4, row: 2);
-    await sheet?.values.insertValue(controller23.text, column: 4, row: 3);
-    await sheet?.values.insertValue(controller24.text, column: 4, row: 4);
-    await sheet?.values.insertValue(controller25.text, column: 4, row: 5);
-    await sheet?.values.insertValue(controller26.text, column: 4, row: 6);
-    await sheet?.values.insertValue(controller27.text, column: 4, row: 7);
-    await sheet?.values.insertValue(controller28.text, column: 4, row: 8);
-    await sheet?.values.insertValue(controller29.text, column: 4, row: 9);
-    await sheet?.values.insertValue(controller30.text, column: 4, row: 10);
-    await sheet?.values.insertValue(controller31.text, column: 4, row: 11);
-    await sheet?.values.insertValue(controller32.text, column: 4, row: 12);
-    await sheet?.values.insertValue(controller33.text, column: 4, row: 13);
-    await sheet?.values.insertValue(controller34.text, column: 4, row: 14);
-    await sheet?.values.insertValue(controller35.text, column: 4, row: 15);
-    await sheet?.values.insertValue(controller36.text, column: 4, row: 16);
-    await sheet?.values.insertValue(controller37.text, column: 4, row: 17);
-    await sheet?.values.insertValue(controller38.text, column: 4, row: 18);
-    await sheet?.values.insertValue(controller39.text, column: 4, row: 19);
-    await sheet?.values.insertValue(controller40.text, column: 4, row: 20);
-    await sheet?.values.insertValue(controller41.text, column: 2, row: 1);
-    await sheet?.values.insertValue(controller42.text, column: 6, row: 2);
-    await sheet?.values.insertValue(controller43.text, column: 6, row: 3);
-    await sheet?.values.insertValue(controller44.text, column: 6, row: 4);
-    await sheet?.values.insertValue(controller45.text, column: 6, row: 5);
-    await sheet?.values.insertValue(controller46.text, column: 6, row: 6);
-    await sheet?.values.insertValue(controller47.text, column: 6, row: 7);
-    await sheet?.values.insertValue(controller48.text, column: 6, row: 8);
-    await sheet?.values.insertValue(controller49.text, column: 6, row: 9);
-    await sheet?.values.insertValue(controller50.text, column: 6, row: 10);
-    await sheet?.values.insertValue(controller51.text, column: 6, row: 11);
-    await sheet?.values.insertValue(controller52.text, column: 6, row: 12);
-    await sheet?.values.insertValue(controller53.text, column: 6, row: 13);
-    await sheet?.values.insertValue(controller54.text, column: 6, row: 14);
-    await sheet?.values.insertValue(controller55.text, column: 6, row: 15);
-    await sheet?.values.insertValue(controller56.text, column: 6, row: 16);
-    await sheet?.values.insertValue(controller57.text, column: 6, row: 17);
-    await sheet?.values.insertValue(controller58.text, column: 6, row: 18);
+    await sheet?.values
+        .insertValue(controller1.text ?? 'empty', column: 2, row: 1);
+    await sheet?.values
+        .insertValue(controller2.text ?? 'empty', column: 2, row: 2);
+    await sheet?.values
+        .insertValue(controller3.text ?? 'empty', column: 2, row: 3);
+    await sheet?.values
+        .insertValue(controller4.text ?? 'empty', column: 2, row: 4);
+    await sheet?.values
+        .insertValue(controller5.text ?? 'empty', column: 2, row: 5);
+    await sheet?.values
+        .insertValue(controller6.text ?? 'empty', column: 2, row: 6);
+    await sheet?.values
+        .insertValue(controller7.text ?? 'empty', column: 2, row: 7);
+    await sheet?.values
+        .insertValue(controller8.text ?? 'empty', column: 2, row: 8);
+    await sheet?.values
+        .insertValue(controller9.text ?? 'empty', column: 2, row: 9);
+    await sheet?.values
+        .insertValue(controller10.text ?? 'empty', column: 2, row: 10);
+    await sheet?.values
+        .insertValue(controller11.text ?? 'empty', column: 2, row: 11);
+    await sheet?.values
+        .insertValue(controller12.text ?? 'empty', column: 2, row: 12);
+    await sheet?.values
+        .insertValue(controller13.text ?? 'empty', column: 2, row: 13);
+    await sheet?.values
+        .insertValue(controller14.text ?? 'empty', column: 2, row: 14);
+    await sheet?.values
+        .insertValue(controller15.text ?? 'empty', column: 2, row: 15);
+    await sheet?.values
+        .insertValue(controller16.text ?? 'empty', column: 2, row: 16);
+    await sheet?.values
+        .insertValue(controller17.text ?? 'empty', column: 2, row: 17);
+    await sheet?.values
+        .insertValue(controller18.text ?? 'empty', column: 2, row: 18);
+    await sheet?.values
+        .insertValue(controller19.text ?? 'empty', column: 2, row: 19);
+    await sheet?.values
+        .insertValue(controller20.text ?? 'empty', column: 2, row: 20);
+    await sheet?.values
+        .insertValue(controller21.text ?? 'empty', column: 4, row: 1);
+    await sheet?.values
+        .insertValue(controller22.text ?? 'empty', column: 4, row: 2);
+    await sheet?.values
+        .insertValue(controller23.text ?? 'empty', column: 4, row: 3);
+    await sheet?.values
+        .insertValue(controller24.text ?? 'empty', column: 4, row: 4);
+    await sheet?.values
+        .insertValue(controller25.text ?? 'empty', column: 4, row: 5);
+    await sheet?.values
+        .insertValue(controller26.text ?? 'empty', column: 4, row: 6);
+    await sheet?.values
+        .insertValue(controller27.text ?? 'empty', column: 4, row: 7);
+    await sheet?.values
+        .insertValue(controller28.text ?? 'empty', column: 4, row: 8);
+    await sheet?.values
+        .insertValue(controller29.text ?? 'empty', column: 4, row: 9);
+    await sheet?.values
+        .insertValue(controller30.text ?? 'empty', column: 4, row: 10);
+    await sheet?.values
+        .insertValue(controller31.text ?? 'empty', column: 4, row: 11);
+    await sheet?.values
+        .insertValue(controller32.text ?? 'empty', column: 4, row: 12);
+    await sheet?.values
+        .insertValue(controller33.text ?? 'empty', column: 4, row: 13);
+    await sheet?.values
+        .insertValue(controller34.text ?? 'empty', column: 4, row: 14);
+    await sheet?.values
+        .insertValue(controller35.text ?? 'empty', column: 4, row: 15);
+    await sheet?.values
+        .insertValue(controller36.text ?? 'empty', column: 4, row: 16);
+    await sheet?.values
+        .insertValue(controller37.text ?? 'empty', column: 4, row: 17);
+    await sheet?.values
+        .insertValue(controller38.text ?? 'empty', column: 4, row: 18);
+    await sheet?.values
+        .insertValue(controller39.text ?? 'empty', column: 4, row: 19);
+    await sheet?.values
+        .insertValue(controller40.text ?? 'empty', column: 4, row: 20);
+    await sheet?.values
+        .insertValue(controller41.text ?? 'empty', column: 2, row: 1);
+    await sheet?.values
+        .insertValue(controller42.text ?? 'empty', column: 6, row: 2);
+    await sheet?.values
+        .insertValue(controller43.text ?? 'empty', column: 6, row: 3);
+    await sheet?.values
+        .insertValue(controller44.text ?? 'empty', column: 6, row: 4);
+    await sheet?.values
+        .insertValue(controller45.text ?? 'empty', column: 6, row: 5);
+    await sheet?.values
+        .insertValue(controller46.text ?? 'empty', column: 6, row: 6);
+    await sheet?.values
+        .insertValue(controller47.text ?? 'empty', column: 6, row: 7);
+    await sheet?.values
+        .insertValue(controller48.text ?? 'empty', column: 6, row: 8);
+    await sheet?.values
+        .insertValue(controller49.text ?? 'empty', column: 6, row: 9);
+    await sheet?.values
+        .insertValue(controller50.text ?? 'empty', column: 6, row: 10);
+    await sheet?.values
+        .insertValue(controller51.text ?? 'empty', column: 6, row: 11);
+    await sheet?.values
+        .insertValue(controller52.text ?? 'empty', column: 6, row: 12);
+    await sheet?.values
+        .insertValue(controller53.text ?? 'empty', column: 6, row: 13);
+    await sheet?.values
+        .insertValue(controller54.text ?? 'empty', column: 6, row: 14);
+    await sheet?.values
+        .insertValue(controller55.text ?? 'empty', column: 6, row: 15);
+    await sheet?.values
+        .insertValue(controller56.text ?? 'empty', column: 6, row: 16);
+    await sheet?.values
+        .insertValue(controller57.text ?? 'empty', column: 6, row: 17);
+    await sheet?.values
+        .insertValue(controller58.text ?? 'empty', column: 6, row: 18);
     await sheet?.values.insertValue(user.email!, column: 6, row: 19);
     // await sheet?.values.insertValue(controller60, column: 6, row: 20);
     // await sheet?.values.insertValue(controller61.text, column: 8, row: 1);

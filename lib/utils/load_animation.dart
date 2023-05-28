@@ -1,13 +1,10 @@
-
-
 import 'package:quickalert/quickalert.dart';
 import 'package:flutter/material.dart';
 
-loadAnimation({
-  required BuildContext context,
-  void Function()? onConfirmBtnTap,
-  void Function()? onCancelBtnTap
-}){
+loadAnimation(
+    {required BuildContext context,
+    void Function()? onConfirmBtnTap,
+    void Function()? onCancelBtnTap}) {
   QuickAlert.show(
     context: context,
     type: QuickAlertType.confirm,
@@ -16,7 +13,6 @@ loadAnimation({
     cancelBtnText: '아니요',
     confirmBtnColor: Colors.green,
     onConfirmBtnTap: onConfirmBtnTap,
-    onCancelBtnTap: onCancelBtnTap,
-
+    onCancelBtnTap: () => Navigator.pop(context),
   );
 }
