@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gsheets/gsheets.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
+import 'package:pizza_planet/src/logic/map_provider.dart';
 import 'package:pizza_planet/src/logic/provider.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,6 +20,9 @@ void main() async {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => SheetsLogic(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => MapLogic(),
     ),
   ], child: const MyApp()));
 }

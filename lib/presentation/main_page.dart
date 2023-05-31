@@ -49,7 +49,7 @@ class MainPage extends StatelessWidget {
                       title: '맵에서 확인하기',
                       img:
                           'https://png.pngtree.com/png-clipart/20220719/original/pngtree-vector-location-icon-free-and-png-png-image_8369674.png',
-                      onPressed: () => context.goNamed(Screens.mapPage.name),
+                      onPressed: () => context.pushNamed(Screens.mapPage.name),
                     ),
                     IconBox(
                       title: '송장 확인',

@@ -29,8 +29,12 @@ class _Custome_AppbarState extends State<Custome_Appbar> {
             Column(
               children: [
                 Expanded(child: avatar()),
-                Padding(
+                Container(
                   padding: const EdgeInsets.only(left: 23),
+                  decoration: BoxDecoration(
+                    color: Colors.orange,
+                    
+                  ),
                   child: Row(
                     children: [
                       const Text('User:'),
