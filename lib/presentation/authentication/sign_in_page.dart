@@ -61,7 +61,9 @@
 //   }
 // }
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
+import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/utils/login_utils.dart';
 
 class SignInPage extends StatefulWidget {
@@ -172,7 +174,7 @@ class _SignInPageState extends State<SignInPage> {
                     height: 100,
                   ),
 
-                  Parts.ask(context, 'Don\'t have an account? ', 'SIGN UP'),
+                  Parts.ask('Don\'t have an account? ', 'SIGN UP', ()=> context.goNamed(Screens.signUpPage.name),),
                 ],
               ),
             ),

@@ -63,7 +63,9 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
+import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/utils/login_utils.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -176,25 +178,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   //showing error here
                   //debugLocked: is not true
                   //Parts.ask(context, 'Don\'t have an account? ', 'SIGN UP', Parts.pushScreen(context, SignUpPage(),),),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Already have an account? ',
-                        style: TextStyle(color: Colors.white60, fontSize: 20),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text(
-                          'SIGN IN',
-                          style:
-                              TextStyle(color: Colors.lightBlue, fontSize: 20),
-                        ),
-                      ),
-                    ],
-                  ),
+              Parts.ask('Already have an account? ', 'SIGN IN', () => context.goNamed(Screens.signInPage.name),),
+
                 ],
               ),
             ),

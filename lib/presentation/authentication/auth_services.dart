@@ -1,6 +1,8 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pizza_planet/src/logic/go_router.dart';
 
 class AuthServices {
   static signOutUser(BuildContext context) {
@@ -8,21 +10,21 @@ class AuthServices {
         context: context,
         type: CoolAlertType.confirm,
         onConfirmBtnTap: () => FirebaseAuth.instance.signOut(),
-        onCancelBtnTap: () => Navigator.pop(context),
+        onCancelBtnTap: () => context.canPop,
         title: '로그아웃하시겠습니까?');
   }
 
   static signupUser(String email, String password, BuildContext context) async {
-    //TODO: there is issue
+    //TODO: there is an issue with circular progress indicator. it is not popping even when the action is completed
 
     try {
-      showDialog(
-          context: context,
-          builder: (context) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          });
+      // showDialog(
+      //     context: context,
+      //     builder: (context) {
+      //       return const Center(
+      //         child: CircularProgressIndicator(),
+      //       );
+      //     });
       // UserCredential userCredential =
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
@@ -37,10 +39,10 @@ class AuthServices {
       // await FirestoreServices.saveUser(name, email, userCredential.user!.uid);
       CoolAlert.show(
         context: context,
-        type: CoolAlertType.success,
+        type: CoolAlertType.info,
         title: 'Registration successful',
         // onConfirmBtnTap: () => showDialog(
-        onConfirmBtnTap: () => Navigator.pop(context),
+        onConfirmBtnTap: () => context.goNamed(Screens.mainPage.name),
         //     context: context,
         //     builder: (context) {
         //       return Center(
@@ -59,15 +61,15 @@ class AuthServices {
           type: CoolAlertType.success,
           title: 'Password Provided is too weak',
           loopAnimation: true,
-          // onConfirmBtnTap: () => Navigator.pop(context),
+          onConfirmBtnTap: () => context.canPop(),
         );
       } else if (e.code == 'email-already-in-use') {
         CoolAlert.show(
           context: context,
           type: CoolAlertType.success,
-          title: 'Email Provided already Exists',
+          title: 'Email Provided already Exists, Please log in',
           loopAnimation: true,
-          // onConfirmBtnTap: () => Navigator.pop(context),
+          onConfirmBtnTap: () => context.canPop(),
         );
       }
     } catch (e) {
@@ -76,6 +78,7 @@ class AuthServices {
         type: CoolAlertType.success,
         title: e.toString(),
         loopAnimation: true,
+        onConfirmBtnTap: ()=> context.canPop(),
       );
     }
   }

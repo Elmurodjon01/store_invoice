@@ -3,6 +3,7 @@ import 'package:gsheets/gsheets.dart';
 import 'package:pizza_planet/presentation/authentication/auth_page.dart';
 import 'package:pizza_planet/presentation/authentication/sign_in_page.dart';
 import 'package:pizza_planet/presentation/main_page.dart';
+import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/src/logic/provider.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,9 +31,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
-      home: AuthPage(),
     );
   }
 }

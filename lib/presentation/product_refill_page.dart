@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/presentation/main_page.dart';
+import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/src/logic/provider.dart';
 import 'package:provider/provider.dart';
 import '../model/constants.dart';
@@ -206,12 +208,12 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                     );
                     WidgetsBinding.instance
                         .addPostFrameCallback((_) => _controller.clear());
-
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MainPage()),
-                        (route) => false);
+                    context.pushReplacementNamed(Screens.mainPage.name);
+                    // Navigator.pushAndRemoveUntil(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => const MainPage()),
+                    //     (route) => false);
                   },
                   onCancelBtnTap: () => Navigator.pop(context),
                 );

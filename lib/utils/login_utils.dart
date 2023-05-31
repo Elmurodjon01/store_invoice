@@ -1,5 +1,8 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:pizza_planet/presentation/authentication/sign_up_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pizza_planet/src/logic/go_router.dart';
 
 class Parts {
   static Widget avatar() {
@@ -79,7 +82,7 @@ class Parts {
     );
   }
 
-  static Widget ask(BuildContext context, String text1, String text2) {
+  static Widget ask( String text1, String text2, void Function()? goWhere) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -88,8 +91,7 @@ class Parts {
           style: const TextStyle(color: Colors.white60, fontSize: 20),
         ),
         GestureDetector(
-          onTap: () async => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SignUpPage())),
+          onTap: goWhere,
           child: Text(
             text2,
             style: const TextStyle(color: Colors.lightBlue, fontSize: 20),

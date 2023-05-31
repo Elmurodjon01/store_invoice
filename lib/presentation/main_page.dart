@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:pizza_planet/presentation/product_refill_page.dart';
+import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/utils/appBar.dart';
 import 'package:pizza_planet/utils/check_web.dart';
 
@@ -40,10 +42,7 @@ class MainPage extends StatelessWidget {
                       title: '재우기',
                       img:
                           'https://cdn-icons-png.flaticon.com/512/1440/1440524.png',
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const ProductRefillPage())),
+                      onPressed: () => context.pushNamed(Screens.refillPage.name),
                     ),
                     IconBox(
                       title: '재우기',
