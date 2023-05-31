@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pizza_planet/presentation/map.dart';
 
 import 'package:pizza_planet/presentation/product_refill_page.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
@@ -45,10 +46,10 @@ class MainPage extends StatelessWidget {
                       onPressed: () => context.pushNamed(Screens.refillPage.name),
                     ),
                     IconBox(
-                      title: '재우기',
+                      title: '맵에서 확인하기',
                       img:
-                          'https://www.pngfind.com/pngs/m/105-1056512_png-file-camera-photo-upload-icon-transparent-png.png',
-                      onPressed: () {},
+                          'https://png.pngtree.com/png-clipart/20220719/original/pngtree-vector-location-icon-free-and-png-png-image_8369674.png',
+                      onPressed: () => context.goNamed(Screens.mapPage.name),
                     ),
                     IconBox(
                       title: '송장 확인',

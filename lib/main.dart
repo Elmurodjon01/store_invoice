@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gsheets/gsheets.dart';
-import 'package:pizza_planet/presentation/authentication/auth_page.dart';
-import 'package:pizza_planet/presentation/authentication/sign_in_page.dart';
-import 'package:pizza_planet/presentation/main_page.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/src/logic/provider.dart';
 import 'package:provider/provider.dart';

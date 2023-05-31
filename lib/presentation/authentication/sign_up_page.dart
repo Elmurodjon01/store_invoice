@@ -67,7 +67,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/utils/login_utils.dart';
-
+//TODO: error after signing app, functions are not working properly
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
   // static const signUpPage = 'signnuppage';

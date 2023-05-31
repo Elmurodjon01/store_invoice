@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/presentation/authentication/auth_page.dart';
 import 'package:pizza_planet/presentation/authentication/sign_in_page.dart';
 import 'package:pizza_planet/presentation/authentication/sign_up_page.dart';
+import 'package:pizza_planet/presentation/map.dart';
 import 'package:pizza_planet/presentation/product_refill_page.dart';
 
 import '../../presentation/main_page.dart';
@@ -12,6 +13,7 @@ enum Screens {
   signUpPage,
   mainPage,
   refillPage,
+  mapPage,
 }
 
 final router = GoRouter(
@@ -41,6 +43,11 @@ final router = GoRouter(
         path: '/refillPage',
         name: Screens.refillPage.name,
         builder: (context, state) => const ProductRefillPage(),
+      ),
+      GoRoute(
+        path: '/mapPage',
+        name: Screens.mapPage.name,
+        builder: (context, state) =>  const MapPage(),
       ),
 
 
