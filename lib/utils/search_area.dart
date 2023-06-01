@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 final user = FirebaseAuth.instance.currentUser!;
-searchArea (TextEditingController searchController){
+searchArea (TextEditingController searchController, void Function()? onPressed){
   return Positioned(
     top: 100,
     left: 0,
@@ -44,7 +44,12 @@ searchArea (TextEditingController searchController){
            Expanded(child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(user.email!, style:const TextStyle(fontWeight: FontWeight.bold, ),),
+              Row(
+                children: [
+                  const Text('hello '),
+                  Text(user.email!, style:const TextStyle(fontWeight: FontWeight.bold,),)
+                ],
+              ),
               TextFormField(
                 textCapitalization: TextCapitalization.words,
                 controller: searchController,
@@ -61,7 +66,10 @@ searchArea (TextEditingController searchController){
             ],
           ),
           ),
-          const  Icon(Icons.search, color: Colors.blue, size: 40,),
+            IconButton(
+              onPressed: onPressed,
+              icon: const Icon( Icons.search, color: Colors.blue, size: 40,),
+           ),
         ],
       ),
     ),);

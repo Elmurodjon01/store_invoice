@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:gsheets/gsheets.dart';
 
 import '../../model/constants.dart';
-
+import 'package:intl/intl.dart';
 class SheetsLogic extends ChangeNotifier {
   final user = FirebaseAuth.instance.currentUser!;
+  DateTime now = DateTime.now();
+  String formattedDate = DateFormat('kk:mm:ss \n EEE d MMM').format(DateTime.now());
   gsheetSubmit({
     required TextEditingController controller1,
     required TextEditingController controller2,
@@ -207,8 +209,10 @@ class SheetsLogic extends ChangeNotifier {
         .insertValue(controller56.text ?? 'empty', column: 6, row: 16);
     await sheet?.values
         .insertValue(controller57.text ?? 'empty', column: 6, row: 17);
+
     await sheet?.values
-        .insertValue(controller58.text ?? 'empty', column: 6, row: 18);
+        .insertValue(formattedDate, column: 6, row: 18);
+
     await sheet?.values.insertValue(user.email!, column: 6, row: 19);
     // await sheet?.values.insertValue(controller60, column: 6, row: 20);
     // await sheet?.values.insertValue(controller61.text, column: 8, row: 1);
