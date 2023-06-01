@@ -63,14 +63,14 @@ children:[
     _mapController.animateCamera(CameraUpdate.newCameraPosition(const CameraPosition(target: currentLocation, zoom: 17), ),);
   }),
   Positioned(
-    top: 20,
+    top: 30,
       left: 10,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
         borderRadius: BorderRadius.circular(30),),
         child: IconButton(
-    onPressed: ()=> Navigator.pop(context),
+    onPressed: ()=> context.pop(),
     icon:const Icon(Icons.arrow_back_ios),
   ),
       )),

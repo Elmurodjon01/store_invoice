@@ -4,6 +4,7 @@ import 'package:pizza_planet/presentation/authentication/sign_in_page.dart';
 import 'package:pizza_planet/presentation/authentication/sign_up_page.dart';
 import 'package:pizza_planet/presentation/map.dart';
 import 'package:pizza_planet/presentation/product_refill_page.dart';
+import 'package:pizza_planet/presentation/splash_page.dart';
 
 import '../../presentation/main_page.dart';
 
@@ -14,11 +15,17 @@ enum Screens {
   mainPage,
   refillPage,
   mapPage,
+  splashPage,
 }
 
 final router = GoRouter(
-  initialLocation: '/authPage',
+  initialLocation: '/splashPage',
     routes: [
+      GoRoute(
+        path: '/splashPage',
+        name: Screens.splashPage.name,
+        builder: (context, state) => SplashPage(),
+      ),
       GoRoute(
         path: '/authPage',
         name: Screens.authPage.name,
