@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
-import 'package:pizza_planet/presentation/main_page.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/src/logic/provider.dart';
 import 'package:provider/provider.dart';
@@ -50,15 +48,15 @@ class _ProductRefillPageState extends State<ProductRefillPage>
     final provider = Provider.of<SheetsLogic>(context);
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: mainColor,
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: mainColor,
         elevation: 0,
         centerTitle: true,
         title: const Text(
           '제품 정보',
 
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         // actions: [
         //   IconButton(

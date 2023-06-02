@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 const sheetID = '1VpiE0TEexUA6SPAIh7T3wdV7GV3LGHjT80-C0Wd2tQk';
@@ -9,6 +11,7 @@ const LatLng home = LatLng(37.448687, 126.683880,);
 const double camera_zoom = 16;
 const double camera_tilt = 80;
 const double camera_bearing = 30;
+const Color mainColor = Color(0xFF03032b);
 const credentials = r'''
 {
   "type": "service_account",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_planet/model/constants.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
 import 'package:pizza_planet/utils/avatar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,46 +17,53 @@ class _CustomeAppbarState extends State<CustomeAppbar> {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
-
+String userInfo = user.email!;
     return Container(
       height: 130,
       width: 375,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30), color: Colors.blue),
+          borderRadius: BorderRadius.circular(30), color: mainColor),
       child: Center(
         child: Row(
           children: [
             Column(
               children: [
                 Expanded(child: avatar()),
-                Container(
-                  padding: const EdgeInsets.only(left: 23),
-                  decoration:  BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(10),
+
+                   Container(
+                     width: 210,
+                    padding: const EdgeInsets.only(left: 15,),
+                    decoration:  BoxDecoration(
+
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                        children: [
+                          const Text('User:'),
+                          Expanded(
+                            child: Text(
+                              '$userInfo  ',
+                              style:  TextStyle(fontWeight: FontWeight.bold,),
+
+                            ),
+                          ),
+                        ],
+
                   ),
-                  child: Row(
-                    children: [
-                      const Text('User:'),
-                      Text(
-                        user.email!,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                )
+                ),
               ],
             ),
             const Text(
               'Pizza planet',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white54),
             ),
             IconButton(
               onPressed: () {
                 AuthServices.signOutUser(context);
 
               },
-              icon: const Icon(Icons.logout),
+              icon: const Icon(Icons.logout, color: Colors.grey,),
             ),
           ],
         ),

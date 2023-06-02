@@ -64,6 +64,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pizza_planet/model/constants.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/utils/login_utils.dart';
@@ -84,7 +85,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF03032b),
+      backgroundColor: mainColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(

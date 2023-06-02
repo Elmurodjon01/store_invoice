@@ -55,7 +55,7 @@ searchArea (TextEditingController searchController, void Function()? onPressed){
                 controller: searchController,
                 decoration: const InputDecoration(
 
-                  hintText: 'Where to??',
+                  hintText: 'Which branch do you navigate?',
                   hintStyle: TextStyle(color: Colors.grey),
 
                 ),

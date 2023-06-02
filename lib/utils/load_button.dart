@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:pizza_planet/model/constants.dart';
 
 GestureDetector LoadButton(
     {required BuildContext context, required void Function()? onTap}) {
@@ -11,7 +11,7 @@ GestureDetector LoadButton(
       height: 60,
       width: 140,
       decoration: BoxDecoration(
-        color: const Color(0xFF80CBC4),
+        color: mainColor,
         //TODO: come here
         // provider.themeMode == provider.isDarkMode ? Colors.grey : Colors.orange,
         borderRadius: BorderRadius.circular(20),
@@ -19,7 +19,7 @@ GestureDetector LoadButton(
       child: const Center(
         child: Text(
           '제출하기',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
     ),

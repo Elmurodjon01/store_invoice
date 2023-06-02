@@ -67,16 +67,17 @@ children:[
       left: 10,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: mainColor,
         borderRadius: BorderRadius.circular(30),),
         child: IconButton(
     onPressed: ()=> context.pop(),
-    icon:const Icon(Icons.arrow_back_ios),
+    icon:const Icon(Icons.arrow_back_ios, color: Colors.white,),
   ),
       )),
       ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: mainColor,
         onPressed: () async {
           Position position = await _determinePosition();
 
@@ -92,7 +93,7 @@ children:[
 
         },
         // label: const Text("Current Location"),
-       child: const Icon(Icons.location_history),
+       child: const Icon(Icons.location_history, color: Colors.white,),
       ),
     );
   }

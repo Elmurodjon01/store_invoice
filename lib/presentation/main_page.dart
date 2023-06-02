@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pizza_planet/model/constants.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
 import 'package:pizza_planet/presentation/mapPage.dart';
 
@@ -19,6 +20,7 @@ class MainPage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+
       body: Column(
         children: [
           const SizedBox(
@@ -33,7 +35,7 @@ class MainPage extends StatelessWidget {
               height: height * 0.7,
               width: width * 0.9,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: mainColor,
                 borderRadius: BorderRadius.circular(50.0),
               ),
               child: Center(
