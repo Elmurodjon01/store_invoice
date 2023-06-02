@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/model/constants.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
@@ -15,9 +14,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Hide the default splash screen
-   FlutterNativeSplash.remove();
+   // FlutterNativeSplash.remove();
     // Delay for 3 seconds and then navigate to the home screen
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 4), () {
       context.pushReplacementNamed(Screens.authPage.name);
     });
   }
@@ -46,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   progressStrokeWidth: 9,
                   progressColors: [Colors.red, Colors.blue],
                   fullProgressColor: Colors.orange,
-                  animationDuration: 2,
+                  animationDuration: 3,
                 ),
                 Divider(),
                 Text('Pizza Planet', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
