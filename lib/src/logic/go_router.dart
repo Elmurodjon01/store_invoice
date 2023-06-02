@@ -3,7 +3,7 @@ import 'package:pizza_planet/presentation/authentication/auth_page.dart';
 import 'package:pizza_planet/presentation/authentication/forgotPasswordPage.dart';
 import 'package:pizza_planet/presentation/authentication/sign_in_page.dart';
 import 'package:pizza_planet/presentation/authentication/sign_up_page.dart';
-import 'package:pizza_planet/presentation/map.dart';
+import 'package:pizza_planet/presentation/mapPage.dart';
 import 'package:pizza_planet/presentation/product_refill_page.dart';
 import 'package:pizza_planet/presentation/splash_page.dart';
 

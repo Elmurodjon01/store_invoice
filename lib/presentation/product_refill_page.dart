@@ -19,18 +19,14 @@ class ProductRefillPage extends StatefulWidget {
 
 class _ProductRefillPageState extends State<ProductRefillPage>
     with SingleTickerProviderStateMixin {
-  // TextEditingController controller1 = TextEditingController();
 
   final List<TextEditingController> _controller =
       List.generate(58, (i) => TextEditingController());
-  // List allLabel = [];
 
-  late TabController tabController;
 
   @override
   void initState() {
 
-    tabController = TabController(length: 2, vsync: this);
     allLabel.addAll(first20Row);
     allLabel.addAll(second20Row);
     allLabel.addAll(third20Row);
@@ -56,10 +52,12 @@ class _ProductRefillPageState extends State<ProductRefillPage>
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.grey,
         elevation: 0,
+        centerTitle: true,
         title: const Text(
           '제품 정보',
+
           style: TextStyle(color: Colors.black),
         ),
         // actions: [
@@ -80,25 +78,24 @@ class _ProductRefillPageState extends State<ProductRefillPage>
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                TabBar(
-                  controller: tabController,
-                  // onTap: (tabController) {
-                  //   return myTabs[tabController];
-                  // },
-                  tabs: const [
-                    Tab(
-                      icon: Icon(Icons.home),
-                      text: '첫번째 줄',
-                    ),
-                    Tab(
-                      icon: Icon(Icons.send),
-                      text: '두 번째 줄',
-                    ),
-                  ],
-                ),
+                // TabBar(
+                //   controller: tabController,
+                //   // onTap: (tabController) {
+                //   //   return myTabs[tabController];
+                //   // },
+                //   tabs: const [
+                //     Tab(
+                //       icon: Icon(Icons.home),
+                //       text: '첫번째 줄',
+                //     ),
+                //     Tab(
+                //       icon: Icon(Icons.send),
+                //       text: '두 번째 줄',
+                //     ),
+                //   ],
+                // ),
                 Expanded(
-                  child: TabBarView(controller: tabController, children: [
-                    GridView.builder(
+                    child: GridView.builder(
                       shrinkWrap: true,
                       itemCount: allLabel.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -110,13 +107,13 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                             controller: _controller[index]);
                       },
                     ),
-                    const Center(
-                      child: Text(
-                        'second home',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ]),
+                    // const Center(
+                    //   child: Text(
+                    //     'second home',
+                    //     style: TextStyle(color: Colors.white),
+                    //   ),
+                    // ),
+
                 ),
               ],
             ),

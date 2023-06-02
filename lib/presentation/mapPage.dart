@@ -53,8 +53,8 @@ children:[
             ),
             onMapCreated: (controller) {
               _mapController = controller;
-              provider.addMarker('test', currentLocation, 'inha univ', 'where i study', BitmapDescriptor.defaultMarker);
-              provider.addMarker('test2', home, 'home', 'home sweeet home', BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),);
+              provider.addMarker('test', currentLocation, 'inha university', 'default starting location', BitmapDescriptor.defaultMarker);
+              provider.addMarker('test2', home, 'Pizza planet', 'The located address does not bring you any pizza making place! it has been marked for learning purposes.', BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),);
             },
             markers: Set.from(provider.markers),
           ),

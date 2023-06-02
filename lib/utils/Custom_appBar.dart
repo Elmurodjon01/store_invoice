@@ -3,37 +3,36 @@ import 'package:pizza_planet/presentation/authentication/auth_services.dart';
 import 'package:pizza_planet/utils/avatar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Custome_Appbar extends StatefulWidget {
-  const Custome_Appbar({
+class CustomeAppbar extends StatefulWidget {
+  const CustomeAppbar({
     super.key,
   });
 
   @override
-  State<Custome_Appbar> createState() => _Custome_AppbarState();
+  State<CustomeAppbar> createState() => _CustomeAppbarState();
 }
 
-class _Custome_AppbarState extends State<Custome_Appbar> {
+class _CustomeAppbarState extends State<CustomeAppbar> {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
 
     return Container(
       height: 130,
-      width: 400,
+      width: 375,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30), color: Colors.blue),
       child: Center(
         child: Row(
           children: [
-            // Text('대표자:'),
             Column(
               children: [
                 Expanded(child: avatar()),
                 Container(
                   padding: const EdgeInsets.only(left: 23),
-                  decoration: const BoxDecoration(
+                  decoration:  BoxDecoration(
                     color: Colors.orange,
-                    
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
                     children: [

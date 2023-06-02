@@ -83,11 +83,7 @@ final _passController = TextEditingController();
 
 class _SignUpPageState extends State<SignUpPage> {
   @override
-  void dispose() {
-    _emailController.dispose();
-    _passController.dispose();
-    super.dispose();
-  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,18 +98,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   const SizedBox(
                     height: 140,
                   ),
+                  Parts.avatar('https://img1.pnghut.com/9/12/2/bmwJVnbivH/google-account-symbol-user-profile-icon-design-number.jpg'),
                   Parts.welcoming(
                     'Create\n Account',
                   ),
                   const SizedBox(
                     height: 60,
                   ),
-                  // Parts.reusableTextField(
-                  //   _nameController,
-                  //   'User Name',
-                  //   Icons.person_outline,
-                  //   false,
-                  // ),
                   const SizedBox(
                     height: 13,
                   ),
@@ -156,8 +147,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         AuthServices.signupUser(
                             _emailController.text.trim(),
                             _passController.text.trim(),
-                            // _nameController.text.trim(),
                             context);
+                        _emailController.clear();
+                        _passController.clear();
                       }
 
                     },
@@ -192,9 +184,6 @@ class _SignUpPageState extends State<SignUpPage> {
                   const SizedBox(
                     height: 100,
                   ),
-                  //showing error here
-                  //debugLocked: is not true
-                  //Parts.ask(context, 'Don\'t have an account? ', 'SIGN UP', Parts.pushScreen(context, SignUpPage(),),),
               Parts.ask('Already have an account? ', 'SIGN IN', () => context.goNamed(Screens.signInPage.name),),
 
                 ],
@@ -205,18 +194,4 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
   }
-  // void _doSignUp (){
-  //   String name = _nameController.text.toString().trim();
-  //   String email = _emailController.text.toString().trim();
-  //   String phone = _phoneController.text.toString().trim();
-  //   String pass = _passController.text.toString().trim();
-  //   Account account = Account(username: name, password: pass, email: email, phone: phone);
-  //   HiveDB().storeAccount(account);
-  //   var account2 = HiveDB().loadAccount();
-  //   print(account2.username);
-  //   print(account2.email);
-  //   print(account2.phone);
-  //   print(account2.password);
-
-  // }
 }

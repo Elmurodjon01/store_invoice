@@ -1,11 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pizza_planet/presentation/map.dart';
+import 'package:pizza_planet/presentation/authentication/auth_services.dart';
+import 'package:pizza_planet/presentation/mapPage.dart';
 
 import 'package:pizza_planet/presentation/product_refill_page.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
-import 'package:pizza_planet/utils/appBar.dart';
+import 'package:pizza_planet/utils/Custom_appBar.dart';
 import 'package:pizza_planet/utils/check_web.dart';
 
 import '../utils/icon_box.dart';
@@ -23,7 +24,7 @@ class MainPage extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          const Custome_Appbar(),
+          const CustomeAppbar(),
           const SizedBox(
             height: 15,
           ),
@@ -48,7 +49,7 @@ class MainPage extends StatelessWidget {
                     IconBox(
                       title: '맵에서 확인하기',
                       img:
-                          'https://png.pngtree.com/png-clipart/20220719/original/pngtree-vector-location-icon-free-and-png-png-image_8369674.png',
+                          'https://img.icons8.com/?size=512&id=42828&format=png',
                       onPressed: () => context.pushNamed(Screens.mapPage.name),
                     ),
                     IconBox(
@@ -56,7 +57,14 @@ class MainPage extends StatelessWidget {
                       img:
                           'https://cdn-icons-png.flaticon.com/512/4143/4143062.png',
                       onPressed: () => checkWeb(),
-                    )
+                    ),
+                    IconBox(
+                      title: '계정 삭제',
+                      img:
+                      'https://cdn-icons-png.flaticon.com/512/2037/2037451.png',
+                      onPressed: () => AuthServices.deleteUse(context),
+
+                    ),
                   ],
                 ),
               ),
@@ -66,4 +74,5 @@ class MainPage extends StatelessWidget {
       ),
     );
   }
+
 }

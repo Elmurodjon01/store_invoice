@@ -6,9 +6,33 @@ import 'package:pizza_planet/src/logic/go_router.dart';
 
 class AuthServices {
 
-  static Future forgotPassword (String email)async {
 
+  static Future deleteUse (BuildContext context) async {
+    CoolAlert.show(context: context, type: CoolAlertType.confirm,
+      title: 'Are you sure you want to delete your account',
+      onConfirmBtnTap: () async {
+        User user = FirebaseAuth.instance.currentUser!;
+        user.delete();
+        context.pushReplacementNamed(Screens.signInPage.name);
+      },
+      onCancelBtnTap: ()=> context.canPop(),
+    );
 
+  }
+
+  static Future forgotPassword (String email, BuildContext context)async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      CoolAlert.show(context: context, type: CoolAlertType.info,
+          title: 'Reset password link sent! Check your email',
+          onConfirmBtnTap: ()=> context.pushReplacementNamed(Screens.signInPage.name),);
+    } on FirebaseAuthException catch (e){
+      CoolAlert.show(context: context, type: CoolAlertType.info,
+        title: e.message.toString(),
+        onConfirmBtnTap: ()=> context.canPop(),
+
+      );
+    }
   }
 
   static signOutUser(BuildContext context) {
@@ -109,7 +133,7 @@ class AuthServices {
         type: CoolAlertType.success,
         title: 'You are Logged in',
         loopAnimation: true,
-        // onConfirmBtnTap: () => Navigator.pop(context),
+        onConfirmBtnTap: () => context.pushReplacementNamed(Screens.mainPage.name),
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

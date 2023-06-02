@@ -77,10 +77,10 @@ final _emailController = TextEditingController();
 
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
-  }
+  // void dispose() {
+  //   _emailController.dispose();
+  //   super.dispose();
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,9 +93,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 140,
+                    height: 150,
                   ),
-
+                  Parts.avatar('https://cdn-icons-png.flaticon.com/512/6195/6195699.png'),
                   const SizedBox(
                     height: 60,
                   ),
@@ -130,20 +130,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     height: 40,
                   ),
                   GestureDetector(
-                    onTap: ()=> AuthServices.forgotPassword(_emailController.text.trim(),),
-                    // onTap: () async {
-                    //   if (_emailController.text.isEmpty){
-                    //     CoolAlert.show(
-                    //         context: context,
-                    //         type: CoolAlertType.error,
-                    //         onConfirmBtnTap: ()=> context.canPop(),
-                    //         title: 'You have to enter email address!'
-                    //     );
-                    //   } else {
-                    //    AuthServices.forgotPassword(_emailController.text);
-                    //   }
-                    //
-                    // },
+                    onTap: (){
+                      AuthServices.forgotPassword(_emailController.text.trim(), context);
+                      _emailController.clear();
+                    },
                     child: Container(
                       height: 80,
                       width: 80,

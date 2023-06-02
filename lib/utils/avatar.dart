@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 Widget avatar() {
   return AvatarGlow(
-    glowColor: Color.fromARGB(255, 234, 237, 240),
+    glowColor: const Color.fromARGB(255, 234, 237, 240),
     endRadius: 90.0,
-    duration: const Duration(milliseconds: 2000),
+    duration: const Duration(milliseconds: 3),
     repeat: true,
     showTwoGlows: true,
     repeatPauseDuration: const Duration(milliseconds: 100),

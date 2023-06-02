@@ -18,11 +18,11 @@ class _SignInPageState extends State<SignInPage> {
   final passController = TextEditingController();
 
   @override
-  void dispose() {
-    emailController.dispose();
-    passController.dispose();
-    super.dispose();
-  }
+  // void dispose() {
+  //   emailController.dispose();
+  //   passController.dispose();
+  //   super.dispose();
+  // }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF03032b),
@@ -37,7 +37,7 @@ class _SignInPageState extends State<SignInPage> {
                   const SizedBox(
                     height: 140,
                   ),
-                  Parts.avatar(),
+                  Parts.avatar('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5bsir0ZLjmzTEfkM4IBFQQzYNXPUjZTF6EKWQOpBfiG7yYPp_uXw5fcABtNWFbh6nipk&usqp=CAU'),
                   const SizedBox(
                     height: 20,
                   ),
@@ -86,6 +86,8 @@ class _SignInPageState extends State<SignInPage> {
                             emailController.text.trim(),
                             passController.text.trim(),
                             context);
+                        emailController.clear();
+                        passController.clear();
                       }
 
                     },
