@@ -1,5 +1,6 @@
   icons_launcher:
     image_path: "assets/images/pizzastore.png"
+    adaptive_background_color: '0xFF03032b'
     platforms:
       android:
        enable: true

@@ -47,7 +47,7 @@ searchArea (TextEditingController searchController, void Function()? onPressed){
               Row(
                 children: [
                   const Text('hello '),
-                  Text(user.email!, style:const TextStyle(fontWeight: FontWeight.bold,),)
+                  Expanded(child: Text(user.email!, style:const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),),),
                 ],
               ),
               TextFormField(

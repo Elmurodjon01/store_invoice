@@ -40,11 +40,11 @@ String userInfo = user.email!;
                     ),
                     child: Row(
                         children: [
-                          const Text('User:'),
+                          const Text('Welcome ', style: TextStyle(fontSize: 12),),
                           Expanded(
                             child: Text(
                               '$userInfo  ',
-                              style:  TextStyle(fontWeight: FontWeight.bold,),
+                              style:  const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
 
                             ),
                           ),

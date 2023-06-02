@@ -21,12 +21,12 @@ enum Screens {
 }
 
 final router = GoRouter(
-  initialLocation: '/authPage',
+  initialLocation: '/splashPage',
     routes: [
       GoRoute(
         path: '/splashPage',
         name: Screens.splashPage.name,
-        builder: (context, state) => SplashPage(),
+        builder: (context, state) => SplashScreen(),
       ),
       GoRoute(
         path: '/authPage',
