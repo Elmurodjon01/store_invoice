@@ -1,8 +1,7 @@
 
 
+
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:pizza_planet/src/logic/go_router.dart';
 
 class Parts {
   static Widget avatar() {
@@ -75,10 +74,13 @@ class Parts {
     );
   }
 
-  static Widget restorePass() {
-    return const Text(
-      'Forgot Password?',
-      style: TextStyle(color: Colors.white60, fontSize: 15),
+  static Widget restorePass(void Function()? ontap) {
+    return GestureDetector(
+     onTap: ontap,
+      child: const Text(
+        'Forgot Password?',
+        style: TextStyle(color: Colors.white60, fontSize: 15),
+      ),
     );
   }
 

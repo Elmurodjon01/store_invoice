@@ -1,65 +1,5 @@
-// import 'package:cool_alert/cool_alert.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flutter/material.dart';
-// import 'package:pizza_planet/presentation/authentication/auth_services.dart';
-// import 'package:pizza_planet/presentation/authentication/sign_up_page.dart';
 
-// class SignInPage extends StatefulWidget {
-//   const SignInPage({super.key});
-
-//   @override
-//   State<SignInPage> createState() => _SignInPageState();
-// }
-
-// class _SignInPageState extends State<SignInPage> {
-//   TextEditingController passController = TextEditingController();
-//   TextEditingController emailController = TextEditingController();
-
-//   // errorMessage(String e) {
-//   //   CoolAlert.show(
-//   //     context: context,
-//   //     type: CoolAlertType.error,
-//   //     title: e,
-//   //     text: 'User authentication',
-//   //     loopAnimation: true,
-//   //     onConfirmBtnTap: () => Navigator.pop(context),
-//   //   );
-//   // }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('SignIn'),
-//       ),
-//       body: Center(
-//         child: Column(
-//           children: [
-//             TextField(
-//               controller: emailController,
-//             ),
-//             TextField(
-//               controller: passController,
-//             ),
-//             MaterialButton(
-//               onPressed: () => AuthServices.signinUser(
-//                   emailController.text, passController.text, context),
-//               child: const Text('Sign In'),
-//             ),
-//             const SizedBox(
-//               height: 100,
-//             ),
-//             MaterialButton(
-//               onPressed: () => Navigator.push(context,
-//                   MaterialPageRoute(builder: (context) => const SignUpPage())),
-//               child: const Text('Sign Up'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
@@ -76,18 +16,13 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
-  // void initState() {
-  //   nameController;
-  //   passController;
-  //
-  //   super.initState();
-  // }
-  //@override
-  // void dispose() {
-  //   nameController.dispose();
-  //   passController.dispose();
-  //   super.dispose();
-  // }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passController.dispose();
+    super.dispose();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF03032b),
@@ -132,16 +67,28 @@ class _SignInPageState extends State<SignInPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Parts.restorePass(),
+                  Parts.restorePass(()=> context.pushNamed(Screens.forgotPasswordPage.name)),
                   const SizedBox(
                     height: 40,
                   ),
                   //Parts.arrow(pressed: _doLogin),
                   GestureDetector(
-                    onTap: () => AuthServices.signinUser(
-                        emailController.text.trim(),
-                        passController.text.trim(),
-                        context),
+                    onTap: (){
+                      if (emailController.text.isEmpty || passController.text.isEmpty){
+                        CoolAlert.show(
+                          context: context,
+                          type: CoolAlertType.error,
+                          onConfirmBtnTap: ()=> context.canPop(),
+                          title: 'You have to fill both email and password!'
+                        );
+                      } else {
+                        AuthServices.signinUser(
+                            emailController.text.trim(),
+                            passController.text.trim(),
+                            context);
+                      }
+
+                    },
                     child: Container(
                       height: 80,
                       width: 80,

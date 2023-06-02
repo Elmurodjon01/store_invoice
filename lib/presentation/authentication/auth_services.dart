@@ -5,11 +5,20 @@ import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
 
 class AuthServices {
+
+  static Future forgotPassword (String email)async {
+
+
+  }
+
   static signOutUser(BuildContext context) {
     CoolAlert.show(
         context: context,
         type: CoolAlertType.confirm,
-        onConfirmBtnTap: () => FirebaseAuth.instance.signOut(),
+        onConfirmBtnTap: () {
+          FirebaseAuth.instance.signOut();
+          context.pushReplacementNamed(Screens.signInPage.name);
+        },
         onCancelBtnTap: () => context.canPop,
         title: '로그아웃하시겠습니까?');
   }
@@ -42,7 +51,7 @@ class AuthServices {
         type: CoolAlertType.info,
         title: 'Registration successful',
         // onConfirmBtnTap: () => showDialog(
-        onConfirmBtnTap: () => context.goNamed(Screens.mainPage.name),
+        onConfirmBtnTap: () => context.pushReplacementNamed(Screens.mainPage.name),
         //     context: context,
         //     builder: (context) {
         //       return Center(

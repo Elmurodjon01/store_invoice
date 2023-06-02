@@ -31,7 +31,7 @@ class _Custome_AppbarState extends State<Custome_Appbar> {
                 Expanded(child: avatar()),
                 Container(
                   padding: const EdgeInsets.only(left: 23),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.orange,
                     
                   ),
@@ -52,7 +52,10 @@ class _Custome_AppbarState extends State<Custome_Appbar> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             IconButton(
-              onPressed: () => AuthServices.signOutUser(context),
+              onPressed: () {
+                AuthServices.signOutUser(context);
+
+              },
               icon: const Icon(Icons.logout),
             ),
           ],

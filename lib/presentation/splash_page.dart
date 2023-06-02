@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
       navigator: Navigator.of(context).pushReplacement(
         PageRouteBuilder(
           //TODO: error with navigating to auth page
-          pageBuilder: (context, animation, secondaryAnimation) => MainPage(),
+          pageBuilder: (context, animation, secondaryAnimation) => const MainPage(),
         ),
       ),
       durationInSeconds: 5,

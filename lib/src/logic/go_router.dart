@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/presentation/authentication/auth_page.dart';
+import 'package:pizza_planet/presentation/authentication/forgotPasswordPage.dart';
 import 'package:pizza_planet/presentation/authentication/sign_in_page.dart';
 import 'package:pizza_planet/presentation/authentication/sign_up_page.dart';
 import 'package:pizza_planet/presentation/map.dart';
@@ -16,10 +17,11 @@ enum Screens {
   refillPage,
   mapPage,
   splashPage,
+  forgotPasswordPage,
 }
 
 final router = GoRouter(
-  initialLocation: '/splashPage',
+  initialLocation: '/authPage',
     routes: [
       GoRoute(
         path: '/splashPage',
@@ -55,6 +57,11 @@ final router = GoRouter(
         path: '/mapPage',
         name: Screens.mapPage.name,
         builder: (context, state) =>  const MapPage(),
+      ),
+      GoRoute(
+        path: '/forgotPasswordPage',
+        name: Screens.forgotPasswordPage.name,
+        builder: (context, state) =>  const ForgotPasswordPage(),
       ),
 
 

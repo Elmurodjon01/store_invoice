@@ -13,6 +13,7 @@ class AuthPage extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            // Navigator.of(context).pushNamedAndRemoveUntil(Screens.mainPage.name, (route) => false);
             return const MainPage();
           } else {
             return const SignInPage();
@@ -22,23 +23,3 @@ class AuthPage extends StatelessWidget {
     );
   }
 }
-
-// class AuthPage extends StatelessWidget {
-//   const AuthPage({super.key});
-//
-//   @override
-//   redirect: (BuildContext context, GoRouterState state) {
-//     return Scaffold(
-//       body: StreamBuilder<User?>(
-//         stream: FirebaseAuth.instance.authStateChanges(),
-//         builder: (context, snapshot) {
-//           if (snapshot.hasData) {
-//             return const MainPage();
-//           } else {
-//             return const SignInPage();
-//           }
-//         },
-//       ),
-//     );
-//   }
-// }
