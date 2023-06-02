@@ -13,10 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Hide the default splash screen
-   // FlutterNativeSplash.remove();
-    // Delay for 3 seconds and then navigate to the home screen
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 3), () {
       context.pushReplacementNamed(Screens.authPage.name);
     });
   }
@@ -45,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   progressStrokeWidth: 9,
                   progressColors: [Colors.red, Colors.blue],
                   fullProgressColor: Colors.orange,
-                  animationDuration: 3,
+                  animationDuration: 2,
                 ),
                 Divider(),
                 Text('Pizza Planet', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),

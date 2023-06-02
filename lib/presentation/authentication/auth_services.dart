@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class AuthServices {
 
@@ -116,20 +117,26 @@ class AuthServices {
     }
   }
 
-  static signinUser(String email, String password, BuildContext context) async {
+  static signinUser(String email, String password, BuildContext context, GlobalKey scaffoldKey) async {
     try {
       showDialog(
           context: context,
           builder: (context) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child:  SimpleCircularProgressBar(
+                size: 45,
+                progressStrokeWidth: 9,
+                progressColors: [Colors.red, Colors.blue],
+                fullProgressColor: Colors.orange,
+                animationDuration: 3,
+              ),
             );
           });
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       Navigator.pop(context);
       CoolAlert.show(
-        context: context,
+        context: scaffoldKey.currentContext!,
         type: CoolAlertType.success,
         title: 'You are Logged in',
         loopAnimation: true,

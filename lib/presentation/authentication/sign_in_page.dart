@@ -17,7 +17,7 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
-
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   // void dispose() {
   //   emailController.dispose();
@@ -26,6 +26,7 @@ class _SignInPageState extends State<SignInPage> {
   // }
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: mainColor,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -86,7 +87,7 @@ class _SignInPageState extends State<SignInPage> {
                         AuthServices.signinUser(
                             emailController.text.trim(),
                             passController.text.trim(),
-                            context);
+                            context, _scaffoldKey);
                         emailController.clear();
                         passController.clear();
                       }
@@ -133,18 +134,5 @@ class _SignInPageState extends State<SignInPage> {
       ),
     );
   }
-  // void _doLogin(){
-  //   String username = nameController.text.toString().trim();
-  //   String password = passController.text.toString().trim();
 
-  //     var box = Hive.box('test_database');
-
-  //     box.put('username', username);
-  //     box.put('password', password);
-  //     String id = box.get('username');
-  //     String pw = box.get('password');
-  //     print(id);
-  //     print(pw);
-
-  // }
 }

@@ -52,6 +52,8 @@ dependencies:
   geolocator: ^9.0.2
   icons_launcher: ^2.1.0
   simple_circular_progress_bar: ^1.0.2
+  internet_connection_checker: ^1.0.0+1
+  flutter_phoenix: ^1.1.1
 
 
 dev_dependencies:
@@ -80,6 +82,7 @@ flutter:
   assets:
     - assets/images/pizzagif.gif
     - assets/images/pizzastore.png
+    - assets/images/nointernet.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -8,6 +8,7 @@ import 'package:pizza_planet/presentation/product_refill_page.dart';
 import 'package:pizza_planet/presentation/splash_page.dart';
 
 import '../../presentation/main_page.dart';
+import '../../presentation/noInternetPage.dart';
 
 enum Screens {
   authPage,
@@ -18,6 +19,7 @@ enum Screens {
   mapPage,
   splashPage,
   forgotPasswordPage,
+  noInternetPage,
 }
 
 final router = GoRouter(
@@ -62,6 +64,11 @@ final router = GoRouter(
         path: '/forgotPasswordPage',
         name: Screens.forgotPasswordPage.name,
         builder: (context, state) =>  const ForgotPasswordPage(),
+      ),
+      GoRoute(
+        path: '/noInternetPage',
+        name: Screens.noInternetPage.name,
+        builder: (context, state) => const NoInternetPage(),
       ),
 
 
