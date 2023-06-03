@@ -15,6 +15,7 @@ class AuthServices {
         User user = FirebaseAuth.instance.currentUser!;
         user.delete();
         context.pushReplacementNamed(Screens.signInPage.name);
+
       },
       onCancelBtnTap: ()=> context.canPop(),
     );
@@ -23,7 +24,21 @@ class AuthServices {
 
   static Future forgotPassword (String email, BuildContext context)async {
     try {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return const Center(
+              child:  SimpleCircularProgressBar(
+                size: 45,
+                progressStrokeWidth: 9,
+                progressColors: [Colors.red, Colors.blue],
+                fullProgressColor: Colors.orange,
+                animationDuration: 3,
+              ),
+            );
+          });
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      Navigator.pop(context);
       CoolAlert.show(context: context, type: CoolAlertType.info,
           title: 'Reset password link sent! Check your email',
           onConfirmBtnTap: ()=> context.pushReplacementNamed(Screens.signInPage.name),);
@@ -52,25 +67,24 @@ class AuthServices {
     //TODO: there is an issue with circular progress indicator. it is not popping even when the action is completed
 
     try {
-      // showDialog(
-      //     context: context,
-      //     builder: (context) {
-      //       return const Center(
-      //         child: CircularProgressIndicator(),
-      //       );
-      //     });
-      // UserCredential userCredential =
+      showDialog(
+          context: context,
+          builder: (context) {
+            return const Center(
+              child:  SimpleCircularProgressBar(
+                size: 45,
+                progressStrokeWidth: 9,
+                progressColors: [Colors.red, Colors.blue],
+                fullProgressColor: Colors.orange,
+                animationDuration: 3,
+              ),
+            );
+          });
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      // User? user = userCredential.user;
-      // await user!.updateDisplayName(name);
-
-      // await FirebaseAuth.instance.currentUser!.updateDisplayName(name);
-      // await FirebaseAuth.instance.currentUser!.updateEmail(email);
-
-      // await FirestoreServices.saveUser(name, email, userCredential.user!.uid);
+      Navigator.pop(context);
       CoolAlert.show(
         context: context,
         type: CoolAlertType.info,
@@ -117,7 +131,7 @@ class AuthServices {
     }
   }
 
-  static signinUser(String email, String password, BuildContext context, GlobalKey scaffoldKey) async {
+  static signinUser(String email, String password, BuildContext context, GlobalKey scaffoldKey, void Function()? onConfirm) async {
     try {
       showDialog(
           context: context,
@@ -140,7 +154,7 @@ class AuthServices {
         type: CoolAlertType.success,
         title: 'You are Logged in',
         loopAnimation: true,
-        onConfirmBtnTap: () => context.pushReplacementNamed(Screens.mainPage.name),
+        onConfirmBtnTap: onConfirm,
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

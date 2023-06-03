@@ -19,11 +19,6 @@ class _SignInPageState extends State<SignInPage> {
   final passController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
-  // void dispose() {
-  //   emailController.dispose();
-  //   passController.dispose();
-  //   super.dispose();
-  // }
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
@@ -87,7 +82,14 @@ class _SignInPageState extends State<SignInPage> {
                         AuthServices.signinUser(
                             emailController.text.trim(),
                             passController.text.trim(),
-                            context, _scaffoldKey);
+                            context, _scaffoldKey,
+                            (){
+                              Future.delayed(const Duration(seconds: 0)).then((value) {
+                                // go to result screen when time is over
+                               context.pushReplacementNamed(Screens.mainPage.name);
+                              });
+                            }
+                        );
                         emailController.clear();
                         passController.clear();
                       }

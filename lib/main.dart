@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         return StreamBuilder(stream: InternetConnectionChecker().connectionStatus.asStream(),
             builder: (context, snapshot){
           final connectivity = snapshot.data;
-          if(connectivity == InternetConnectionStatus.disconnected || connectivity == null){
+          if(connectivity == InternetConnectionStatus.disconnected){
             print('no internet');
             return const  NoInternetPage();
 
