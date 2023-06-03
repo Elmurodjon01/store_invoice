@@ -18,7 +18,7 @@ GestureDetector LoadButton(
       ),
       child: const Center(
         child: Text(
-          '제출하기',
+          'submit',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),

@@ -37,7 +37,7 @@ class ItemBox extends StatelessWidget {
                 filled: true,
                 fillColor: const Color(0xFFCFD8DC),
                 contentPadding: const EdgeInsets.all(15),
-                hintText: '수량을 입력하십시오',
+                hintText: 'amount',
                 hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),

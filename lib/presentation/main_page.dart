@@ -43,25 +43,25 @@ class MainPage extends StatelessWidget {
                   crossAxisCount: 2,
                   children: [
                     IconBox(
-                      title: '재우기',
+                      title: 'refill items',
                       img:
                           'https://cdn-icons-png.flaticon.com/512/1440/1440524.png',
                       onPressed: () => context.pushNamed(Screens.refillPage.name),
                     ),
                     IconBox(
-                      title: '맵에서 확인하기',
+                      title: 'store address',
                       img:
                           'https://img.icons8.com/?size=512&id=42828&format=png',
                       onPressed: () => context.pushNamed(Screens.mapPage.name),
                     ),
                     IconBox(
-                      title: '송장 확인',
+                      title: 'invoice',
                       img:
                           'https://cdn-icons-png.flaticon.com/512/4143/4143062.png',
                       onPressed: () => checkWeb(),
                     ),
                     IconBox(
-                      title: '계정 삭제',
+                      title: 'delete account',
                       img:
                       'https://cdn-icons-png.flaticon.com/512/2037/2037451.png',
                       onPressed: () => AuthServices.deleteUse(context),

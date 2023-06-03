@@ -10,7 +10,7 @@ class AuthServices {
 
   static Future deleteUse (BuildContext context) async {
     CoolAlert.show(context: context, type: CoolAlertType.confirm,
-      title: 'Are you sure you want to delete your account',
+      title: 'do you want to delete account?',
       onConfirmBtnTap: () async {
         User user = FirebaseAuth.instance.currentUser!;
         user.delete();
@@ -60,7 +60,7 @@ class AuthServices {
           context.pushReplacementNamed(Screens.signInPage.name);
         },
         onCancelBtnTap: () => context.canPop,
-        title: '로그아웃하시겠습니까?');
+        title: 'log out?');
   }
 
   static signupUser(String email, String password, BuildContext context) async {
@@ -177,24 +177,3 @@ class AuthServices {
     }
   }
 }
-
-// void signInUser() async {
-//   showDialog(
-//       context: context,
-//       builder: (context) => const Center(
-//             child: CircularProgressIndicator(),
-//           ));
-//   try {
-//     await FirebaseAuth.instance.signInWithEmailAndPassword(
-//         email: emailController.text, password: passController.text);
-//     Navigator.pop(context);
-//   } on FirebaseAuthException catch (e) {
-//     if (e.code == 'user-not-found') {
-//       errorMessage('There is no user registered with this email');
-//       print('there is no user found with this email');
-//     } else if (e.code == 'wrong-password') {
-//       errorMessage('Wrong password');
-//       print('invalid password');
-//     }
-//   }
-// }

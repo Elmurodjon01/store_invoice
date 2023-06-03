@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/src/logic/provider.dart';
 import 'package:provider/provider.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import '../model/constants.dart';
 import '../utils/item_box.dart';
 import '../utils/load_animation.dart';
@@ -54,20 +55,10 @@ class _ProductRefillPageState extends State<ProductRefillPage>
         elevation: 0,
         centerTitle: true,
         title: const Text(
-          '제품 정보',
+          'product info',
 
           style: TextStyle(color: Colors.white),
         ),
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {
-        //       showSearch(
-        //           context: context,
-        //           delegate: CustomSearchDelegate(controller: _controller));
-        //     },
-        //     icon: const Icon(Icons.search),
-        //   ),
-        // ],
       ),
       body: Stack(
         alignment: Alignment.bottomCenter,
@@ -76,22 +67,6 @@ class _ProductRefillPageState extends State<ProductRefillPage>
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                // TabBar(
-                //   controller: tabController,
-                //   // onTap: (tabController) {
-                //   //   return myTabs[tabController];
-                //   // },
-                //   tabs: const [
-                //     Tab(
-                //       icon: Icon(Icons.home),
-                //       text: '첫번째 줄',
-                //     ),
-                //     Tab(
-                //       icon: Icon(Icons.send),
-                //       text: '두 번째 줄',
-                //     ),
-                //   ],
-                // ),
                 Expanded(
                     child: GridView.builder(
                       shrinkWrap: true,
@@ -105,12 +80,6 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                             controller: _controller[index]);
                       },
                     ),
-                    // const Center(
-                    //   child: Text(
-                    //     'second home',
-                    //     style: TextStyle(color: Colors.white),
-                    //   ),
-                    // ),
 
                 ),
               ],
@@ -119,6 +88,7 @@ class _ProductRefillPageState extends State<ProductRefillPage>
           LoadButton(
               context: context,
               onTap: () {
+
                 //TODO: do some action if controllers are empty ?? null
                 if (_controller.isEmpty) {}
                 loadAnimation(
@@ -206,11 +176,7 @@ class _ProductRefillPageState extends State<ProductRefillPage>
                     WidgetsBinding.instance
                         .addPostFrameCallback((_) => _controller.clear());
                     context.pushReplacementNamed(Screens.mainPage.name);
-                    // Navigator.pushAndRemoveUntil(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => const MainPage()),
-                    //     (route) => false);
+
                   },
                   onCancelBtnTap: () => Navigator.pop(context),
                 );

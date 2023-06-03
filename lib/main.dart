@@ -37,10 +37,8 @@ class MyApp extends StatelessWidget {
             builder: (context, snapshot){
           final connectivity = snapshot.data;
           if(connectivity == InternetConnectionStatus.disconnected){
-            print('no internet');
+            print('인터넷 없음');
             return const  NoInternetPage();
-
-
           }
           return child!;
           }

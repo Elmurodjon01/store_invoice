@@ -8,9 +8,9 @@ loadAnimation(
   QuickAlert.show(
     context: context,
     type: QuickAlertType.confirm,
-    text: '삽입한 데이터를 저장하시겠습니까? 다시 편집하고 싶으며 30초 후에 다시 방문 부탁드립니다',
-    confirmBtnText: '네',
-    cancelBtnText: '아니요',
+    text: 'do you want to submit? if so please use the service after 45 seconds!',
+    confirmBtnText: 'Yes',
+    cancelBtnText: 'No',
     confirmBtnColor: Colors.green,
     onConfirmBtnTap: onConfirmBtnTap,
     onCancelBtnTap: () => Navigator.pop(context),
