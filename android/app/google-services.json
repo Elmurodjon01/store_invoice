@@ -29,6 +29,13 @@
             {
               "client_id": "948932157902-8q1uhbc3j1taf5fo2dnrdhqnea0grptv.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "948932157902-duscuuph5knq7v99s8d93m590unnjdel.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pizzaPlanet"
+              }
             }
           ]
         }
