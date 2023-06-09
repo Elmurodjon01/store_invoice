@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "948932157902",
-    "project_id": "gsheetauth",
-    "storage_bucket": "gsheetauth.appspot.com"
+    "project_number": "445783033436",
+    "project_id": "shopinfo-82f45",
+    "storage_bucket": "shopinfo-82f45.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:948932157902:android:216d2d7ac0b1b41d5acb9f",
+        "mobilesdk_app_id": "1:445783033436:android:741d058c29fa32790fc899",
         "android_client_info": {
-          "package_name": "com.example.pizza_planet"
+          "package_name": "com.elmurodjon.shopinfo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "948932157902-8q1uhbc3j1taf5fo2dnrdhqnea0grptv.apps.googleusercontent.com",
+          "client_id": "445783033436-b0cubk5ol5fdbr2a4vdbjsim3qqj2b6k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBbOEs_E3sfpeBuJp2uTlMzDrPr8iNYC2I"
+          "current_key": "AIzaSyD7XQCpP1GWrgLogSA7AmmK8F0X8JG-iKc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "948932157902-8q1uhbc3j1taf5fo2dnrdhqnea0grptv.apps.googleusercontent.com",
+              "client_id": "445783033436-b0cubk5ol5fdbr2a4vdbjsim3qqj2b6k.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "948932157902-duscuuph5knq7v99s8d93m590unnjdel.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.pizzaPlanet"
-              }
             }
           ]
         }

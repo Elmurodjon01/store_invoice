@@ -1,4 +1,4 @@
-package com.example.pizza_planet
+package com.elmurodjon.shopinfo
 
 import io.flutter.embedding.android.FlutterActivity
 
