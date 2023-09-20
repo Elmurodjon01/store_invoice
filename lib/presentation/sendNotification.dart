@@ -35,8 +35,11 @@ TextEditingController controller = TextEditingController();
           TextField(
             controller: controller,
           ),
-          MaterialButton(onPressed: (){
-            notify.sendMessage(controller.text);
+          MaterialButton(onPressed: () async {
+          bool tt = await notify.sendMessage(controller.text);
+          tt;
+          print('====================================================${tt}========================================');
+
           },
           child: const Text('send'),),
         ],

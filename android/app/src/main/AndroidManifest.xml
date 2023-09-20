@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- Permissions options for the `notification` group -->
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <application
         android:label="store_invoice"
         android:name="${applicationName}"

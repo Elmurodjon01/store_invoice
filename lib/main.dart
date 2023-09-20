@@ -14,7 +14,18 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 @pragma('vm:entry-point')
 
+
+
+
+
+
+
+
+
 Future multiRegistration () async {
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+        FlutterLocalNotificationsPlugin();
+
     WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -38,13 +49,20 @@ var messageString = "";
       );
       messageString = message.notification!.body!;
       print("Foreground 메시지 수신: $messageString");
+
     }
   });
+  flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
+    AndroidFlutterLocalNotificationsPlugin>()?.requestPermission();
   await FirebaseMessaging.instance.subscribeToTopic('NOTIFY');
 }
 
 
 void main() async {
+
+
+
+
 multiRegistration();
   // final gsheets = GSheets(credentials);
   // final fetchSpreadSheet = await gsheets.spreadsheet(sheetID);
