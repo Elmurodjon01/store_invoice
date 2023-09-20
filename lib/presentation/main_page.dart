@@ -1,11 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/model/constants.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
-import 'package:pizza_planet/presentation/mapPage.dart';
-
-import 'package:pizza_planet/presentation/product_refill_page.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/utils/Custom_appBar.dart';
 import 'package:pizza_planet/utils/check_web.dart';
@@ -67,6 +64,33 @@ class MainPage extends StatelessWidget {
                       onPressed: () => AuthServices.deleteUse(context),
 
                     ),
+                    Container(
+                     padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10, top: 40),
+                     child: GestureDetector(
+                      onTap: ()=> context.pushNamed(Screens.notificationsPage.name),
+                       child: Column(
+                         children: [
+                           Image.asset('assets/images/notification.gif'),
+                          const Text('Notifications'),
+                         ],
+                       ),
+                     ),
+
+                    ),
+                    Container(
+                     padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10, top: 40),
+                     child: GestureDetector(
+                      onTap: ()=> context.pushNamed(Screens.sendNotificaiton.name),
+                       child: Column(
+                         children: [
+                           Image.asset('assets/images/notification.gif'),
+                          const Text('Notify'),
+                         ],
+                       ),
+                     ),
+
+                    ),
+                  
                   ],
                 ),
               ),

@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:pizza_planet/presentation/noInternetPage.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
@@ -8,14 +9,46 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+
+@pragma('vm:entry-point')
+
+Future multiRegistration () async {
+    WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+var messageString = "";
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
+    RemoteNotification? notification = message.notification;
+
+    if (notification != null) {
+      FlutterLocalNotificationsPlugin().show(
+        notification.hashCode,
+        notification.title,
+        notification.body,
+        const NotificationDetails(
+          android: AndroidNotificationDetails(
+            'high_importance_channel',
+            'high_importance_notification',
+            importance: Importance.max,
+          ),
+        ),
+      );
+      messageString = message.notification!.body!;
+      print("Foreground 메시지 수신: $messageString");
+    }
+  });
+  await FirebaseMessaging.instance.subscribeToTopic('NOTIFY');
+}
+
+
+void main() async {
+multiRegistration();
   // final gsheets = GSheets(credentials);
   // final fetchSpreadSheet = await gsheets.spreadsheet(sheetID);
-  // var sheet = fetchSpreadSheet.worksheetByTitle('invoice');
+  // var sheet = fetchSpreadSheet.worksheetByTitle('invoice'); 
   runApp(Phoenix(child: MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => SheetsLogic(),
