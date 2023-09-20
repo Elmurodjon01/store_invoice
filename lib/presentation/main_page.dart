@@ -1,17 +1,30 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/model/constants.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/utils/Custom_appBar.dart';
 import 'package:pizza_planet/utils/check_web.dart';
+import 'package:pizza_planet/utils/local_notification.dart';
 
 import '../utils/icon_box.dart';
-
-class MainPage extends StatelessWidget {
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+
+  @override
+  void initState() {
+   Notice.initialize(flutterLocalNotificationsPlugin);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -100,5 +113,4 @@ class MainPage extends StatelessWidget {
       ),
     );
   }
-
 }
