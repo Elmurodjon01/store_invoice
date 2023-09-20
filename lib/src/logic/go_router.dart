@@ -1,10 +1,14 @@
+
+
 import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/presentation/authentication/auth_page.dart';
 import 'package:pizza_planet/presentation/authentication/forgotPasswordPage.dart';
 import 'package:pizza_planet/presentation/authentication/sign_in_page.dart';
 import 'package:pizza_planet/presentation/authentication/sign_up_page.dart';
 import 'package:pizza_planet/presentation/mapPage.dart';
+import 'package:pizza_planet/presentation/notification_page.dart';
 import 'package:pizza_planet/presentation/product_refill_page.dart';
+import 'package:pizza_planet/presentation/sendNotification.dart';
 import 'package:pizza_planet/presentation/splash_page.dart';
 
 import '../../presentation/main_page.dart';
@@ -20,6 +24,8 @@ enum Screens {
   splashPage,
   forgotPasswordPage,
   noInternetPage,
+  notificationsPage,
+  sendNotificaiton,
 }
 
 final router = GoRouter(
@@ -69,6 +75,16 @@ final router = GoRouter(
         path: '/noInternetPage',
         name: Screens.noInternetPage.name,
         builder: (context, state) => const NoInternetPage(),
+      ),
+       GoRoute(
+        path: '/notificationsPage',
+        name: Screens.notificationsPage.name,
+        builder: (context, state) => const NotificationsPage(),
+      ),
+      GoRoute(
+        path: '/sendNotification',
+        name: Screens.sendNotificaiton.name,
+        builder: (context, state) => const SendNotification(),
       ),
 
 
