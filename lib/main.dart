@@ -23,38 +23,12 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 
 Future multiRegistration () async {
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-        FlutterLocalNotificationsPlugin();
 
     WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-var messageString = "";
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
-    RemoteNotification? notification = message.notification;
 
-    if (notification != null) {
-      FlutterLocalNotificationsPlugin().show(
-        notification.hashCode,
-        notification.title,
-        notification.body,
-        const NotificationDetails(
-          android: AndroidNotificationDetails(
-            'high_importance_channel',
-            'high_importance_notification',
-            importance: Importance.max,
-          ),
-        ),
-      );
-      messageString = message.notification!.body!;
-      print("Foreground 메시지 수신: $messageString");
-
-    }
-  });
-  flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
-    AndroidFlutterLocalNotificationsPlugin>()?.requestPermission();
-  await FirebaseMessaging.instance.subscribeToTopic('NOTIFY');
 }
 
 
@@ -82,6 +56,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp.router(
       builder: (context, child){
         return StreamBuilder(stream: InternetConnectionChecker().connectionStatus.asStream(),

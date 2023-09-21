@@ -134,7 +134,7 @@ class AuthServices {
   static signinUser(String email, String password, BuildContext context, GlobalKey scaffoldKey, void Function()? onConfirm) async {
     try {
       showDialog(
-          context: context,
+          context: scaffoldKey.currentContext!,
           builder: (context) {
             return const Center(
               child:  SimpleCircularProgressBar(
