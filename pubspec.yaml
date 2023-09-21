@@ -87,6 +87,7 @@ flutter:
     - assets/images/pizzastore.png
     - assets/images/nointernet.png
     - assets/images/notification.gif
+    - shorebird.yaml
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
