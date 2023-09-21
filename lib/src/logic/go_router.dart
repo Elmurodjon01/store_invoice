@@ -79,7 +79,9 @@ final router = GoRouter(
        GoRoute(
         path: '/notificationsPage',
         name: Screens.notificationsPage.name,
-        builder: (context, state) => const NotificationsPage(),
+        builder: (context, state) =>  NotificationsPage(
+         payload: state.queryParameters['payload']!
+        ),
       ),
       GoRoute(
         path: '/sendNotification',

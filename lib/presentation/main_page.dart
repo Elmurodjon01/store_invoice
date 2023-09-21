@@ -1,4 +1,5 @@
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:go_router/go_router.dart';
@@ -22,9 +23,15 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-   Notice.initialize(flutterLocalNotificationsPlugin);
+   Notice.initialize(flutterLocalNotificationsPlugin,
+   onDidReceiveNotificationRes,
+   );
+  
     super.initState();
   }
+
+
+  
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -112,5 +119,48 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
     );
+  }
+
+  onDidReceiveNotificationRes(NotificationResponse notificationResponse) {
+    String payload = '';
+     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
+    RemoteNotification? notification = message.notification;
+
+    if (notification != null) {
+      FlutterLocalNotificationsPlugin().show(
+      
+        notification.hashCode,
+        notification.title,
+        notification.body,
+        
+        const NotificationDetails(
+        
+          android: AndroidNotificationDetails(
+          
+            'high_importance_channel',
+            'high_importance_notification',
+            importance: Importance.max,
+            
+          ),
+          
+        ),
+      
+      );
+      payload = message.notification!.body!;
+      print("Foreground 메시지 수신: $payload");
+
+    }
+  });
+    
+    // if (notificationResponse.payload != null) {
+      
+      debugPrint('notification payload: $payload');
+       context.pushNamed(Screens.notificationsPage.name,
+    queryParameters: {
+      'payload' : payload
+    }
+  );
+    // }
+   
   }
 }
