@@ -5,6 +5,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pizza_planet/model/constants.dart';
 import 'package:pizza_planet/presentation/authentication/auth_services.dart';
+import 'package:pizza_planet/presentation/notification_page.dart';
 import 'package:pizza_planet/src/logic/go_router.dart';
 import 'package:pizza_planet/utils/Custom_appBar.dart';
 import 'package:pizza_planet/utils/check_web.dart';
@@ -148,18 +149,20 @@ class _MainPageState extends State<MainPage> {
       );
       payload = message.notification!.body!;
       print("Foreground 메시지 수신: $payload");
-
+Navigator.push(context, MaterialPageRoute(builder: (context){
+  return NotificationsPage(payload: payload);
+}));
+  //      context.goNamed(Screens.notificationsPage.name,
+  //   queryParameters: {
+  //     'payload' : payload
+  //   }
+  // );
     }
   });
     
     // if (notificationResponse.payload != null) {
       
-      debugPrint('notification payload: $payload');
-       context.pushNamed(Screens.notificationsPage.name,
-    queryParameters: {
-      'payload' : payload
-    }
-  );
+   
     // }
    
   }

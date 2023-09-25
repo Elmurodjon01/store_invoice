@@ -55,6 +55,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
   @override
   void initState() {
     super.initState();
+    print('Notifications message ${widget.payload}');
   }
 
   @override
@@ -86,7 +87,9 @@ class _NotificationsPageState extends State<NotificationsPage> {
         centerTitle: false,
         elevation: 0,
       ),
-      body: ListView(
+      body: widget.payload == null ? Center(
+        child: CircularProgressIndicator(),
+      ) : ListView(
         padding: EdgeInsets.zero,
         scrollDirection: Axis.vertical,
         children: [
@@ -123,7 +126,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                       child: Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                         child: Text(
-                          widget.payload,
+                          widget.payload ,
                           style:
                               const TextStyle(  fontFamily: 'Plus Jakarta Sans',
                                     color: Color(0xFF14181B),

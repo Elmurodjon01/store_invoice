@@ -9,10 +9,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
-
-@pragma('vm:entry-point')
 
 
 
