@@ -76,13 +76,13 @@ final router = GoRouter(
         name: Screens.noInternetPage.name,
         builder: (context, state) => const NoInternetPage(),
       ),
-       GoRoute(
-        path: '/notificationsPage',
-        name: Screens.notificationsPage.name,
-        builder: (context, state) =>  NotificationsPage(
-         payload: state.queryParameters['payload']!
-        ),
-      ),
+      //  GoRoute(
+      //   path: '/notificationsPage',
+      //   name: Screens.notificationsPage.name,
+      //   builder: (context, state) =>  NotificationsPage(
+      //    payload: state.queryParameters['payload']!
+      //   ),
+      // ),
       GoRoute(
         path: '/sendNotification',
         name: Screens.sendNotificaiton.name,
